@@ -11,24 +11,26 @@ import UIKit
 
 final class OnboardingWireframe: BaseWireframe<OnboardingViewController> {
 
-    // MARK: - Private properties -
+  // MARK: - Private properties -
 
-    private let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+  private let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
 
-    // MARK: - Module setup -
+  // MARK: - Module setup -
 
-    init() {
-        let moduleViewController = storyboard.instantiateViewController(ofType: OnboardingViewController.self)
-        super.init(viewController: moduleViewController)
+  init() {
+    let moduleViewController = storyboard.instantiateViewController(ofType: OnboardingViewController.self)
+    super.init(viewController: moduleViewController)
 
-        let interactor = OnboardingInteractor()
-        let presenter = OnboardingPresenter(view: moduleViewController, interactor: interactor, wireframe: self)
-        moduleViewController.presenter = presenter
-    }
-
+    let interactor = OnboardingInteractor()
+    let presenter = OnboardingPresenter(view: moduleViewController, interactor: interactor, wireframe: self)
+    moduleViewController.presenter = presenter
+  }
 }
 
 // MARK: - Extensions -
 
 extension OnboardingWireframe: OnboardingWireframeInterface {
+  func navigateHome() {
+    navigationController?.setRootWireframe(HomeWireframe())
+  }
 }

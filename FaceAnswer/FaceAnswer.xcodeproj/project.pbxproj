@@ -16,7 +16,6 @@
 		FC3E112C2B62C6CD007E166E /* PresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11262B62C6CD007E166E /* PresenterInterface.swift */; };
 		FC3E112D2B62C6CD007E166E /* ViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11272B62C6CD007E166E /* ViewInterface.swift */; };
 		FC3E112E2B62C6CD007E166E /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11282B62C6CD007E166E /* InteractorInterface.swift */; };
-		FC3E11432B62DBF8007E166E /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC3E113D2B62DBF8007E166E /* Onboarding.storyboard */; };
 		FC3E11442B62DBF8007E166E /* OnboardingInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E113E2B62DBF8007E166E /* OnboardingInterfaces.swift */; };
 		FC3E11452B62DBF8007E166E /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E113F2B62DBF8007E166E /* OnboardingPresenter.swift */; };
 		FC3E11462B62DBF8007E166E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11402B62DBF8007E166E /* OnboardingViewController.swift */; };
@@ -40,6 +39,11 @@
 		FC3E116D2B62DC7F007E166E /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11672B62DC7F007E166E /* ResultsViewController.swift */; };
 		FC3E116E2B62DC7F007E166E /* ResultsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11682B62DC7F007E166E /* ResultsInteractor.swift */; };
 		FC3E116F2B62DC7F007E166E /* ResultsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11692B62DC7F007E166E /* ResultsWireframe.swift */; };
+		FC3E11732B639F54007E166E /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC3E11722B639F54007E166E /* Onboarding.storyboard */; };
+		FC3E11752B63A9EA007E166E /* GradientView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11742B63A9EA007E166E /* GradientView+Extension.swift */; };
+		FC3E11782B63C866007E166E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11772B63C866007E166E /* UIView+Extension.swift */; };
+		FC3E117C2B63FA0B007E166E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E117B2B63FA0B007E166E /* Colors.swift */; };
+		FC3E11822B64499B007E166E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11812B64499B007E166E /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +58,6 @@
 		FC3E11262B62C6CD007E166E /* PresenterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterInterface.swift; sourceTree = "<group>"; };
 		FC3E11272B62C6CD007E166E /* ViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
 		FC3E11282B62C6CD007E166E /* InteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
-		FC3E113D2B62DBF8007E166E /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		FC3E113E2B62DBF8007E166E /* OnboardingInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInterfaces.swift; sourceTree = "<group>"; };
 		FC3E113F2B62DBF8007E166E /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		FC3E11402B62DBF8007E166E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +81,11 @@
 		FC3E11672B62DC7F007E166E /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		FC3E11682B62DC7F007E166E /* ResultsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsInteractor.swift; sourceTree = "<group>"; };
 		FC3E11692B62DC7F007E166E /* ResultsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsWireframe.swift; sourceTree = "<group>"; };
+		FC3E11722B639F54007E166E /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		FC3E11742B63A9EA007E166E /* GradientView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GradientView+Extension.swift"; sourceTree = "<group>"; };
+		FC3E11772B63C866007E166E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		FC3E117B2B63FA0B007E166E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		FC3E11812B64499B007E166E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,9 @@
 		FC3E112F2B62C6DA007E166E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FC3E11802B644986007E166E /* Services */,
+				FC3E117D2B64489A007E166E /* Models */,
+				FC3E11762B63C849007E166E /* Extensions */,
 				FC3E11302B62C6E9007E166E /* VIPER */,
 			);
 			path = Common;
@@ -154,7 +165,7 @@
 		FC3E11322B62DB6B007E166E /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				FC3E113D2B62DBF8007E166E /* Onboarding.storyboard */,
+				FC3E11722B639F54007E166E /* Onboarding.storyboard */,
 				FC3E113E2B62DBF8007E166E /* OnboardingInterfaces.swift */,
 				FC3E113F2B62DBF8007E166E /* OnboardingPresenter.swift */,
 				FC3E11402B62DBF8007E166E /* OnboardingViewController.swift */,
@@ -220,6 +231,31 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		FC3E11762B63C849007E166E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FC3E11742B63A9EA007E166E /* GradientView+Extension.swift */,
+				FC3E11772B63C866007E166E /* UIView+Extension.swift */,
+				FC3E117B2B63FA0B007E166E /* Colors.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FC3E117D2B64489A007E166E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FC3E11802B644986007E166E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FC3E11812B64499B007E166E /* UserService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -281,9 +317,9 @@
 				FC3E111C2B62C5D6007E166E /* LaunchScreen.storyboard in Resources */,
 				FC3E114F2B62DC36007E166E /* Home.storyboard in Resources */,
 				FC3E116A2B62DC7F007E166E /* Results.storyboard in Resources */,
+				FC3E11732B639F54007E166E /* Onboarding.storyboard in Resources */,
 				FC3E115D2B62DC70007E166E /* Questions.storyboard in Resources */,
 				FC3E11192B62C5D6007E166E /* Assets.xcassets in Resources */,
-				FC3E11432B62DBF8007E166E /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +331,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC3E11622B62DC70007E166E /* QuestionsWireframe.swift in Sources */,
+				FC3E117C2B63FA0B007E166E /* Colors.swift in Sources */,
+				FC3E11782B63C866007E166E /* UIView+Extension.swift in Sources */,
 				FC3E11602B62DC70007E166E /* QuestionsViewController.swift in Sources */,
 				FC3E11442B62DBF8007E166E /* OnboardingInterfaces.swift in Sources */,
 				FC3E11542B62DC36007E166E /* HomeWireframe.swift in Sources */,
@@ -313,11 +351,13 @@
 				FC3E112E2B62C6CD007E166E /* InteractorInterface.swift in Sources */,
 				FC3E116E2B62DC7F007E166E /* ResultsInteractor.swift in Sources */,
 				FC3E11292B62C6CD007E166E /* BaseWireframe.swift in Sources */,
+				FC3E11752B63A9EA007E166E /* GradientView+Extension.swift in Sources */,
 				FC3E112C2B62C6CD007E166E /* PresenterInterface.swift in Sources */,
 				FC3E116F2B62DC7F007E166E /* ResultsWireframe.swift in Sources */,
 				FC3E115F2B62DC70007E166E /* QuestionsPresenter.swift in Sources */,
 				FC3E11532B62DC36007E166E /* HomeInteractor.swift in Sources */,
 				FC3E116D2B62DC7F007E166E /* ResultsViewController.swift in Sources */,
+				FC3E11822B64499B007E166E /* UserService.swift in Sources */,
 				FC3E11472B62DBF8007E166E /* OnboardingInteractor.swift in Sources */,
 				FC3E11512B62DC36007E166E /* HomePresenter.swift in Sources */,
 				FC3E115E2B62DC70007E166E /* QuestionsInterfaces.swift in Sources */,

@@ -10,9 +10,17 @@
 import Foundation
 
 final class OnboardingInteractor {
+  let userService: UserService
+
+  init(userService: UserService = .shared) {
+    self.userService = userService
+  }
 }
 
 // MARK: - Extensions -
 
 extension OnboardingInteractor: OnboardingInteractorInterface {
+  func saveUserName(_ userName: String) {
+    userService.setUserName(userName)
+  }
 }

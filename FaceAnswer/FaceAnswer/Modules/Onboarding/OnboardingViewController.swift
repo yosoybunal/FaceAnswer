@@ -9,21 +9,43 @@
 
 import UIKit
 
-final class OnboardingViewController: UIViewController {
+final class OnboardingViewController: UIViewController, UITextFieldDelegate {
 
-    // MARK: - Public properties -
+  // MARK: - Public properties -
 
-    var presenter: OnboardingPresenterInterface!
+  @IBOutlet weak var appName: UILabel!
+  @IBOutlet weak var saveButton: UIButton!
+  @IBOutlet weak var usernameField: UITextField!
 
-    // MARK: - Lifecycle -
+  var userName: String?
+  var presenter: OnboardingPresenterInterface!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+  // MARK: - Lifecycle -
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    setupUI()
+    print(UserDefaults.standard.string(forKey: "userNick"))
+  }
+
+  func setupUI() {
+    let gradientArcView = GradientView(frame: UIScreen.main.bounds)
+    view.addSubview(gradientArcView)
+    appName.text = "Face Answer"
+    usernameField.placeholder = "Enter a username"
+    usernameField.delegate = self
+    view.addSubview(appName)
+    view.addSubview(saveButton)
+    view.addSubview(usernameField)
+  }
 }
+
 
 // MARK: - Extensions -
 
 extension OnboardingViewController: OnboardingViewInterface {
+  @IBAction func onButtonClick(_ sender: Any) {
+    self.userName = usernameField.text ?? "-"
+    presenter.shouldNavigate(userName!)
+  }
 }

@@ -10,13 +10,16 @@
 import UIKit
 
 protocol OnboardingWireframeInterface: WireframeInterface {
+  func navigateHome()
 }
 
 protocol OnboardingViewInterface: ViewInterface {
 }
 
 protocol OnboardingPresenterInterface: PresenterInterface {
+  func shouldNavigate(_ userName: String)
 }
 
 protocol OnboardingInteractorInterface: InteractorInterface {
+  func saveUserName(_ userName: String)
 }

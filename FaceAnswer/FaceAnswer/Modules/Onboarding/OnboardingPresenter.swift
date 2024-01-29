@@ -29,4 +29,8 @@ final class OnboardingPresenter {
 // MARK: - Extensions -
 
 extension OnboardingPresenter: OnboardingPresenterInterface {
+  func shouldNavigate(_ userName: String) {
+    wireframe.navigateHome()
+    interactor.saveUserName(userName)
+  }
 }

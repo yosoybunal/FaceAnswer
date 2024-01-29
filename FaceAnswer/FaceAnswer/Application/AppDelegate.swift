@@ -15,15 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
     let initialViewController = UINavigationController()
-    initialViewController.setRootWireframe(OnboardingWireframe(), animated: true)
     window = UIWindow(frame: UIScreen.main.bounds)
     guard let window = window else {
       return false
     }
 
     if shouldShowHome {
-      initialViewController.setRootWireframe(OnboardingWireframe())
+      initialViewController.setRootWireframe(HomeWireframe())
     } else {
+      
+// MARK: - REPLACE THIS WIREFRAME WITH OnboardingWireframe
       initialViewController.setRootWireframe(HomeWireframe())
     }
 
@@ -35,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 private extension AppDelegate {
   var shouldShowHome: Bool {
-    false
+    ((UserDefaults.standard.string(forKey: "userNick")?.isEmpty) != nil)
   }
 }
 

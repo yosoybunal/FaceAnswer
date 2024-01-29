@@ -11,15 +11,16 @@ import UIKit
 
 final class HomeViewController: UIViewController {
 
-    // MARK: - Public properties -
+  // MARK: - Public properties -
 
-    var presenter: HomePresenterInterface!
+  var presenter: HomePresenterInterface!
 
-    // MARK: - Lifecycle -
+  // MARK: - Lifecycle -
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    print(UserDefaults.standard.string(forKey: "userNick"))
+  }
 
 }
 
