@@ -10,13 +10,17 @@
 import UIKit
 
 protocol HomeWireframeInterface: WireframeInterface {
+  func navigateToQuestions(_ category: Dictionary<String, Bool>)
 }
 
 protocol HomeViewInterface: ViewInterface {
 }
 
 protocol HomePresenterInterface: PresenterInterface {
+  func pushData(_ category: Dictionary<String, Bool>)
+  func shouldNavigateToQuestions(_ category: Dictionary<String, Bool>)
 }
 
 protocol HomeInteractorInterface: InteractorInterface {
+  func saveQuestions(_ category: Dictionary<String, Bool>)
 }
