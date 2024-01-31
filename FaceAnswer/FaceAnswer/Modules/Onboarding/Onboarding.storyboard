@@ -21,9 +21,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="vdB-Tg-xvA"/>
                                 </constraints>
-                                <buttonConfiguration key="configuration" style="gray" title="Save Username" cornerStyle="capsule">
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule"/>
                                 <connections>
                                     <action selector="onButtonClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WBr-6E-5U1"/>
                                 </connections>
@@ -36,29 +34,35 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face Answer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7y1-iI-KrM">
-                                <rect key="frame" x="72" y="408.66666666666669" width="250" height="50.333333333333314"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face Answer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7y1-iI-KrM">
+                                <rect key="frame" x="16" y="408.66666666666669" width="361" height="50.333333333333314"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dRu-3z-mj8" customClass="GradientView" customModule="FaceAnswer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Y7L-Kk-eCX" firstAttribute="top" secondItem="7y1-iI-KrM" secondAttribute="bottom" constant="200" id="09e-9r-oFJ"/>
                             <constraint firstItem="YIv-6Z-EvB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="5wC-56-8tA"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7y1-iI-KrM" secondAttribute="trailing" constant="71" id="CfQ-cJ-blO"/>
-                            <constraint firstItem="7y1-iI-KrM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="72" id="KgC-uW-ara"/>
+                            <constraint firstItem="7y1-iI-KrM" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="Atw-Dd-5rp"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YIv-6Z-EvB" secondAttribute="trailing" constant="60" id="SFV-r6-tgf"/>
                             <constraint firstItem="Y7L-Kk-eCX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="120" id="WI0-GV-aVI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YIv-6Z-EvB" secondAttribute="bottom" constant="40" id="Wcq-xd-PQ4"/>
                             <constraint firstItem="YIv-6Z-EvB" firstAttribute="top" secondItem="Y7L-Kk-eCX" secondAttribute="bottom" constant="30" id="ZQI-fK-6Lm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7y1-iI-KrM" secondAttribute="trailing" id="tpL-La-TvK"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Y7L-Kk-eCX" secondAttribute="trailing" constant="120" id="yCU-Kz-elK"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="appName" destination="7y1-iI-KrM" id="d7T-oc-zdB"/>
+                        <outlet property="gradientView" destination="dRu-3z-mj8" id="m5U-4V-r6o"/>
                         <outlet property="saveButton" destination="YIv-6Z-EvB" id="4A4-9l-Me0"/>
                         <outlet property="usernameField" destination="Y7L-Kk-eCX" id="GCp-dy-cGa"/>
                     </connections>

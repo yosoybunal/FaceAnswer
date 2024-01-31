@@ -13,6 +13,7 @@ final class OnboardingViewController: UIViewController, UITextFieldDelegate {
 
   // MARK: - Public properties -
 
+  @IBOutlet weak var gradientView: UIView!
   @IBOutlet weak var appName: UILabel!
   @IBOutlet weak var saveButton: UIButton!
   @IBOutlet weak var usernameField: UITextField!
@@ -25,21 +26,20 @@ final class OnboardingViewController: UIViewController, UITextFieldDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
-    print(UserDefaults.standard.string(forKey: "userNick"))
   }
 
   func setupUI() {
-    let gradientArcView = GradientView(frame: UIScreen.main.bounds)
-    view.addSubview(gradientArcView)
     appName.text = "Face Answer"
     usernameField.placeholder = "Enter a username"
     usernameField.delegate = self
-    view.addSubview(appName)
-    view.addSubview(saveButton)
-    view.addSubview(usernameField)
+    saveButton.applyGradient(colours: [Colors.gradientColor0, Colors.gradientColor1],
+                                     cornerRadius: 15,
+                                     startPoint: CGPoint(x: 0, y: 0),
+                                     endPoint: CGPoint(x: 0, y: 1))
+    saveButton.setTitle("Save Username", for: .normal)
+    saveButton.setTitleColor(.black, for: .normal)
   }
 }
-
 
 // MARK: - Extensions -
 
@@ -49,3 +49,5 @@ extension OnboardingViewController: OnboardingViewInterface {
     presenter.shouldNavigate(userName!)
   }
 }
+
+
