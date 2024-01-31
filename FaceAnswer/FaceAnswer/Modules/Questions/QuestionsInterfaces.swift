@@ -13,10 +13,13 @@ protocol QuestionsWireframeInterface: WireframeInterface {
 }
 
 protocol QuestionsViewInterface: ViewInterface {
+  func getUserData()
 }
 
 protocol QuestionsPresenterInterface: PresenterInterface {
+  func getSelectedUserData() -> Dictionary<String, Bool>
 }
 
 protocol QuestionsInteractorInterface: InteractorInterface {
+  func fetchData() -> Dictionary<String, Bool> 
 }
