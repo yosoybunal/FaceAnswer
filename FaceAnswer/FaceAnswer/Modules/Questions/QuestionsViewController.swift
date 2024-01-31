@@ -13,6 +13,7 @@ final class QuestionsViewController: UIViewController {
 
   // MARK: - Public properties -
 
+  @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var timerLabel: UILabel!
   @IBOutlet weak var questionLabel: UILabel!
 
@@ -20,29 +21,51 @@ final class QuestionsViewController: UIViewController {
   var presenter: QuestionsPresenterInterface!
   var remainingTime = 6
   var selectedCategory: Dictionary<String, Bool>?
+  var keysArray: [String] = []
+  var valuesArray: [Bool] = []
+  var currentIndex = 0
 
   // MARK: - Lifecycle -
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    scoreLabel.text = "Score: 100"
     timerLabel.text = "TIME STARTS NOW!"
-    questionLabel.text = "Question 1"
     startTimer()
     getUserData()
+    keysArray = Array(selectedCategory!.keys)
+    valuesArray = Array(selectedCategory!.values)
+    updateQuestion()
   }
 
   func startTimer() {
-    countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    countdownTimer = Timer.scheduledTimer(timeInterval: 1,
+                                      target: self,
+                                      selector: #selector(updateUI),
+                                      userInfo: nil,
+                                      repeats: true)
   }
 
   func stopTimer() {
     countdownTimer?.invalidate()
     countdownTimer = nil
     timerLabel.text = ""
+    questionLabel.text = ""
+  }
+
+  func updateQuestion() {
+    guard currentIndex < keysArray.count else {
+      // If all keys have been displayed, reset to the first key
+      currentIndex = 0
+      return
+    }
+    let currentKey = keysArray[currentIndex]
+    questionLabel.text = "\(currentKey)"
+    currentIndex += 1
   }
 
 
-  @objc func updateTimer() {
+  @objc func updateUI() {
     if remainingTime > 0 {
       remainingTime -= 1
       timerLabel.text = "\(remainingTime) seconds"
@@ -53,10 +76,14 @@ final class QuestionsViewController: UIViewController {
   }
 
   private func showTimeAlert() {
-    let alert = UIAlertController(title: "Time's up!", message: "The correct answer is:", preferredStyle: .alert)
-    let action = UIAlertAction(title: "OK", style: .default) { _ in
-      self.remainingTime = 6
-      self.startTimer()
+    let alert = UIAlertController(title: "Time's up!",
+                                message: "The correct answer is: \(valuesArray[currentIndex-1])",
+                                preferredStyle: .alert)
+    let action = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+      self?.remainingTime = 6
+      self?.startTimer()
+      self?.updateQuestion()
+      self?.timerLabel.text = "6 seconds"
     }
     alert.addAction(action)
     present(alert, animated: true, completion: nil)
@@ -68,6 +95,5 @@ final class QuestionsViewController: UIViewController {
 extension QuestionsViewController: QuestionsViewInterface {
   func getUserData() {
     self.selectedCategory = presenter.getSelectedUserData()
-    print("Questions VC:", selectedCategory)
   }
 }

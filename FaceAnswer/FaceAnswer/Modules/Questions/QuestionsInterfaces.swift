@@ -13,7 +13,7 @@ protocol QuestionsWireframeInterface: WireframeInterface {
 }
 
 protocol QuestionsViewInterface: ViewInterface {
-  func getUserData()
+  func getUserData() 
 }
 
 protocol QuestionsPresenterInterface: PresenterInterface {
