@@ -9,7 +9,7 @@
 
 import UIKit
 
-final class QuestionsViewController: UIViewController {
+final class QuestionsViewController: HeadGesture {
 
   // MARK: - Public properties -
 
@@ -19,7 +19,7 @@ final class QuestionsViewController: UIViewController {
 
   weak var countdownTimer: Timer?
   var presenter: QuestionsPresenterInterface!
-  var remainingTime = 6
+  var remainingTime = 10
   var selectedCategory: Dictionary<String, Bool>?
   var keysArray: [String] = []
   var valuesArray: [Bool] = []
@@ -31,26 +31,29 @@ final class QuestionsViewController: UIViewController {
     super.viewDidLoad()
     scoreLabel.text = "Score: 100"
     timerLabel.text = "TIME STARTS NOW!"
-    startTimer()
     getUserData()
     keysArray = Array(selectedCategory!.keys)
     valuesArray = Array(selectedCategory!.values)
     updateQuestion()
+    setupCamera()
+    startTimer()
   }
 
-  func startTimer() {
+  override func startTimer() {
     countdownTimer = Timer.scheduledTimer(timeInterval: 1,
                                       target: self,
-                                      selector: #selector(updateUI),
+                                      selector: #selector(updateUIHG),
                                       userInfo: nil,
                                       repeats: true)
   }
 
-  func stopTimer() {
+  override func stopTimer() {
     countdownTimer?.invalidate()
     countdownTimer = nil
-    timerLabel.text = ""
-    questionLabel.text = ""
+    DispatchQueue.main.async {
+      self.timerLabel.text = ""
+      self.questionLabel.text = ""
+    }
   }
 
   func updateQuestion() {
@@ -64,26 +67,44 @@ final class QuestionsViewController: UIViewController {
     currentIndex += 1
   }
 
+  override func handleHeadMovement(answer: Bool) {
+    if answer == self.valuesArray[self.currentIndex - 1] {
+      DispatchQueue.main.async {
+        self.showTimeAlertHG("Your answer is Correct")
+        self.stopTimer()
+        self.captureSession.removeOutput(self.videoOutput)
+      }
+    }  else {
+      DispatchQueue.main.async {
+        self.showTimeAlertHG("Your answer is Wrong")
+        self.stopTimer()
+        self.captureSession.removeOutput(self.videoOutput)
+      }
+    }
 
-  @objc func updateUI() {
+  }
+
+  @objc func updateUIHG() {
     if remainingTime > 0 {
       remainingTime -= 1
       timerLabel.text = "\(remainingTime) seconds"
     } else {
       stopTimer()
-      showTimeAlert()
+      self.captureSession.removeOutput(self.videoOutput)
+      showTimeAlertHG("time is up")
     }
   }
 
-  private func showTimeAlert() {
+  override func showTimeAlertHG(_ message: String) {
     let alert = UIAlertController(title: "Time's up!",
-                                message: "The correct answer is: \(valuesArray[currentIndex-1])",
+                                message: message,
                                 preferredStyle: .alert)
     let action = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-      self?.remainingTime = 6
+      self?.restartTracking()
+      self?.remainingTime = 10
       self?.startTimer()
       self?.updateQuestion()
-      self?.timerLabel.text = "6 seconds"
+      self?.timerLabel.text = "10 seconds"
     }
     alert.addAction(action)
     present(alert, animated: true, completion: nil)
