@@ -126,7 +126,7 @@ class HeadGesture: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegat
     stopTimer()
   }
 
-  func showTimeAlertHG(_ message: String) {
+  func showAlert(message: String, title: String) {
   }
 
 }
