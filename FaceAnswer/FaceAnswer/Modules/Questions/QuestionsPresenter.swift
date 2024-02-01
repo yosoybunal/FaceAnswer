@@ -36,4 +36,8 @@ extension QuestionsPresenter: QuestionsPresenterInterface {
   func setSelectedUserScore(_ score: Int64) {
     interactor.saveScore(score)
   }
+
+  func navigateToResults() {
+    wireframe.navigateToResults()
+  }
 }

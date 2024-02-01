@@ -31,5 +31,7 @@ final class QuestionsWireframe: BaseWireframe<QuestionsViewController> {
 // MARK: - Extensions -
 
 extension QuestionsWireframe: QuestionsWireframeInterface {
-  
+  func navigateToResults() {
+    navigationController?.setRootWireframe(ResultsWireframe(), animated: true)
+  }
 }

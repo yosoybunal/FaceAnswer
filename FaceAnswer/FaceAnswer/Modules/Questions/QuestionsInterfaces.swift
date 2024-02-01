@@ -10,6 +10,7 @@
 import UIKit
 
 protocol QuestionsWireframeInterface: WireframeInterface {
+  func navigateToResults()
 }
 
 protocol QuestionsViewInterface: ViewInterface {
@@ -19,6 +20,7 @@ protocol QuestionsViewInterface: ViewInterface {
 protocol QuestionsPresenterInterface: PresenterInterface {
   func getSelectedUserData() -> Dictionary<String, Bool>
   func setSelectedUserScore(_ score: Int64)
+  func navigateToResults()
 }
 
 protocol QuestionsInteractorInterface: InteractorInterface {

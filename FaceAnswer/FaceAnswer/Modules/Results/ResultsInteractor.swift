@@ -10,9 +10,19 @@
 import Foundation
 
 final class ResultsInteractor {
+  var currentScore: Int64?
+  let context = CoreDataService.shared.context
 }
 
 // MARK: - Extensions -
 
 extension ResultsInteractor: ResultsInteractorInterface {
+  func fetchScore() -> Int64 {
+    do {
+      self.currentScore = try context.fetch(User.fetchRequest()).last?.score
+    } catch {
+      print(error.localizedDescription)
+    }
+    return currentScore!
+  }
 }

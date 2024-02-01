@@ -10,20 +10,30 @@
 import UIKit
 
 final class ResultsViewController: UIViewController {
-
-    // MARK: - Public properties -
-
-    var presenter: ResultsPresenterInterface!
-
-    // MARK: - Lifecycle -
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
+  
+  @IBOutlet weak var currentScoreLabel: UILabel!
+  // MARK: - Public properties -
+  
+  var currentScore: Int64?
+  var presenter: ResultsPresenterInterface!
+  
+  // MARK: - Lifecycle -
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    getCurrentUserScore()
+    setupUI()
+  }
+  
+  func setupUI() {
+    currentScoreLabel.text = "\(currentScore ?? 0)"
+  }
 }
 
 // MARK: - Extensions -
 
 extension ResultsViewController: ResultsViewInterface {
+  func getCurrentUserScore() {
+    self.currentScore = presenter.fetchScore()
+  }
 }

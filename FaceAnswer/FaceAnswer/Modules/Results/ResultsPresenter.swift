@@ -29,4 +29,8 @@ final class ResultsPresenter {
 // MARK: - Extensions -
 
 extension ResultsPresenter: ResultsPresenterInterface {
+  func fetchScore() -> Int64 {
+    let currentUserScore = interactor.fetchScore()
+    return currentUserScore
+  }
 }

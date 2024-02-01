@@ -13,10 +13,13 @@ protocol ResultsWireframeInterface: WireframeInterface {
 }
 
 protocol ResultsViewInterface: ViewInterface {
+  func getCurrentUserScore() 
 }
 
 protocol ResultsPresenterInterface: PresenterInterface {
+  func fetchScore() -> Int64
 }
 
 protocol ResultsInteractorInterface: InteractorInterface {
+  func fetchScore() -> Int64 
 }

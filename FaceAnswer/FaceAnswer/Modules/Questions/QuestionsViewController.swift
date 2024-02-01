@@ -24,8 +24,8 @@ final class QuestionsViewController: HeadGesture {
   var keysArray: [String] = []
   var valuesArray: [Bool] = []
   var currentIndex = 0
-  var score = 0
-  
+  var score: Int64 = 0
+
   // MARK: - Lifecycle -
   
   override func viewDidLoad() {
@@ -59,7 +59,8 @@ final class QuestionsViewController: HeadGesture {
   
   func updateQuestion() {
     guard currentIndex < keysArray.count else {
-      navigationController?.pushWireframe(ResultsWireframe(), animated: true)
+      presenter.setSelectedUserScore(score)
+      presenter.navigateToResults()
       return
     }
     let currentKey = keysArray[currentIndex]
@@ -98,7 +99,7 @@ final class QuestionsViewController: HeadGesture {
   }
   
   override func showAlert(message: String, title: String) {
-    let alert = UIAlertController(title: title,
+    let alert = UIAlertController(title: title.uppercased(),
                                   message: message,
                                   preferredStyle: .alert)
     let action = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
