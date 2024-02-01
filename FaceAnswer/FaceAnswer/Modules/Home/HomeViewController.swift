@@ -11,6 +11,7 @@ import UIKit
 
 final class HomeViewController: UIViewController {
 
+  @IBOutlet weak var howToPlayLabel: UILabel!
   @IBOutlet weak var textLabel: UILabel!
   @IBOutlet weak var collectionView: UICollectionView!
   // MARK: - Public properties -
@@ -34,8 +35,8 @@ final class HomeViewController: UIViewController {
   private func setupUI() {
     title = "Face Answer"
     navigationController?.navigationBar.prefersLargeTitles = true
+    howToPlayLabel.text = "Move your head to right ⇨ for giving TRUE answer to a sentence OR move your head to left ⇦ for giving FALSE answer to a sentence."
     textLabel.text = "Select a Category"
-    textLabel.textColor = .systemBlue
     collectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
   }
 }

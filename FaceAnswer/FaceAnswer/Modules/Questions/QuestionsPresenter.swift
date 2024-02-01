@@ -33,4 +33,7 @@ extension QuestionsPresenter: QuestionsPresenterInterface {
     let userSelecetion = interactor.fetchData()
     return userSelecetion
   }
+  func setSelectedUserScore(_ score: Int64) {
+    interactor.saveScore(score)
+  }
 }

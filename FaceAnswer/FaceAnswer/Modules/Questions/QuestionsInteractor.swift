@@ -10,7 +10,7 @@
 import UIKit
 
 final class QuestionsInteractor {
-
+  
   var selectedCategory: Dictionary<String, Bool>?
   let context = CoreDataService.shared.context
 }
@@ -25,5 +25,16 @@ extension QuestionsInteractor: QuestionsInteractorInterface {
       print(error.localizedDescription)
     }
     return selectedCategory!
+  }
+  
+  func saveScore(_ score: Int64) {
+    let user = User(context: self.context)
+    user.score = score
+    do {
+      try context.save()
+    }
+    catch {
+      print(error.localizedDescription)
+    }
   }
 }

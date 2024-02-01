@@ -18,8 +18,10 @@ protocol QuestionsViewInterface: ViewInterface {
 
 protocol QuestionsPresenterInterface: PresenterInterface {
   func getSelectedUserData() -> Dictionary<String, Bool>
+  func setSelectedUserScore(_ score: Int64)
 }
 
 protocol QuestionsInteractorInterface: InteractorInterface {
   func fetchData() -> Dictionary<String, Bool> 
+  func saveScore(_ score: Int64)
 }

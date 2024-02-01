@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  FaceAnswer
 //
-//  Created by Berkay Unal on 30.01.2024.
+//  Created by Berkay Unal on 1.02.2024.
 //
 //
 
@@ -17,6 +17,7 @@ extension User {
     }
 
     @NSManaged public var selectedCategory: Dictionary<String, Bool>?
+    @NSManaged public var score: Int64
 
 }
 

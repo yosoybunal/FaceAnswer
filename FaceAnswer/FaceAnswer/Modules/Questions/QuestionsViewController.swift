@@ -10,13 +10,13 @@
 import UIKit
 
 final class QuestionsViewController: HeadGesture {
-
+  
   // MARK: - Public properties -
-
+  
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var timerLabel: UILabel!
   @IBOutlet weak var questionLabel: UILabel!
-
+  
   weak var countdownTimer: Timer?
   var presenter: QuestionsPresenterInterface!
   var remainingTime = 10
@@ -24,12 +24,13 @@ final class QuestionsViewController: HeadGesture {
   var keysArray: [String] = []
   var valuesArray: [Bool] = []
   var currentIndex = 0
-
+  var score = 0
+  
   // MARK: - Lifecycle -
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    scoreLabel.text = "Score: 100"
+    scoreLabel.text = "Score: \(score)"
     timerLabel.text = "TIME STARTS NOW!"
     getUserData()
     keysArray = Array(selectedCategory!.keys)
@@ -38,15 +39,15 @@ final class QuestionsViewController: HeadGesture {
     setupCamera()
     startTimer()
   }
-
+  
   override func startTimer() {
     countdownTimer = Timer.scheduledTimer(timeInterval: 1,
-                                      target: self,
-                                      selector: #selector(updateUIHG),
-                                      userInfo: nil,
-                                      repeats: true)
+                                          target: self,
+                                          selector: #selector(updateTimerUI),
+                                          userInfo: nil,
+                                          repeats: true)
   }
-
+  
   override func stopTimer() {
     countdownTimer?.invalidate()
     countdownTimer = nil
@@ -55,50 +56,51 @@ final class QuestionsViewController: HeadGesture {
       self.questionLabel.text = ""
     }
   }
-
+  
   func updateQuestion() {
     guard currentIndex < keysArray.count else {
-      // If all keys have been displayed, reset to the first key
-      currentIndex = 0
+      navigationController?.pushWireframe(ResultsWireframe(), animated: true)
       return
     }
     let currentKey = keysArray[currentIndex]
     questionLabel.text = "\(currentKey)"
     currentIndex += 1
   }
-
+  
   override func handleHeadMovement(answer: Bool) {
     if answer == self.valuesArray[self.currentIndex - 1] {
       DispatchQueue.main.async {
-        self.showTimeAlertHG("Your answer is Correct")
-        self.stopTimer()
         self.captureSession.removeOutput(self.videoOutput)
+        self.stopTimer()
+        self.showAlert(message: "Your answer is Correct", title: "Great job!")
+        self.score += 10
+        self.scoreLabel.text = "Score: \(self.score)"
       }
     }  else {
       DispatchQueue.main.async {
-        self.showTimeAlertHG("Your answer is Wrong")
+        self.showAlert(message: "Your answer is Wrong", title: "Not this time!")
         self.stopTimer()
         self.captureSession.removeOutput(self.videoOutput)
       }
     }
-
+    
   }
-
-  @objc func updateUIHG() {
+  
+  @objc func updateTimerUI() {
     if remainingTime > 0 {
       remainingTime -= 1
       timerLabel.text = "\(remainingTime) seconds"
     } else {
       stopTimer()
       self.captureSession.removeOutput(self.videoOutput)
-      showTimeAlertHG("time is up")
+      showAlert(message: "Time is up.", title: "Sorry!")
     }
   }
-
-  override func showTimeAlertHG(_ message: String) {
-    let alert = UIAlertController(title: "Time's up!",
-                                message: message,
-                                preferredStyle: .alert)
+  
+  override func showAlert(message: String, title: String) {
+    let alert = UIAlertController(title: title,
+                                  message: message,
+                                  preferredStyle: .alert)
     let action = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
       self?.restartTracking()
       self?.remainingTime = 10
