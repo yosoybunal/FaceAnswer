@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qCa-AA-F64">
-                                <rect key="frame" x="0.0" y="228.66666666666666" width="393" height="403.33333333333337"/>
+                                <rect key="frame" x="0.0" y="231" width="393" height="401"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4V0-NT-b3W">
                                     <size key="itemSize" width="128" height="128"/>
@@ -28,9 +29,15 @@
                                 <cells/>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQ6-xk-7L9">
-                                <rect key="frame" x="0.0" y="169" width="393" height="36"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="0.0" y="169" width="393" height="38.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Play" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ye4-sx-dAw">
+                                <rect key="frame" x="20" y="712" width="353" height="19.333333333333371"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
+                                <color key="textColor" systemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -39,7 +46,10 @@
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qCa-AA-F64" secondAttribute="trailing" id="1Qu-ri-ELT"/>
                             <constraint firstItem="MQ6-xk-7L9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8ep-mp-mYa"/>
+                            <constraint firstItem="Ye4-sx-dAw" firstAttribute="top" secondItem="qCa-AA-F64" secondAttribute="bottom" constant="80" id="IbF-Ke-4cC"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ye4-sx-dAw" secondAttribute="trailing" constant="20" id="LDe-6a-Fcv"/>
                             <constraint firstItem="qCa-AA-F64" firstAttribute="top" secondItem="MQ6-xk-7L9" secondAttribute="bottom" constant="23.666666666666572" id="Mwg-Rx-ux1"/>
+                            <constraint firstItem="Ye4-sx-dAw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="NYx-bE-rPv"/>
                             <constraint firstItem="MQ6-xk-7L9" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="110" id="c3U-4F-zOE"/>
                             <constraint firstItem="qCa-AA-F64" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="eCh-oP-qvi"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MQ6-xk-7L9" secondAttribute="trailing" id="sME-L8-c1w"/>
@@ -49,6 +59,7 @@
                     <navigationItem key="navigationItem" id="LyZ-jS-5mE"/>
                     <connections>
                         <outlet property="collectionView" destination="qCa-AA-F64" id="lYn-zA-4wk"/>
+                        <outlet property="howToPlayLabel" destination="Ye4-sx-dAw" id="tkP-6F-OwB"/>
                         <outlet property="textLabel" destination="MQ6-xk-7L9" id="yB6-Q3-edl"/>
                     </connections>
                 </viewController>
@@ -58,8 +69,14 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

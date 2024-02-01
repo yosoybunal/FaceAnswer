@@ -16,7 +16,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
   func configure(categoryName: String) {
     textLabel.text = categoryName
-    textLabel.font = .systemFont(ofSize: 18, weight: .semibold)
+    textLabel.font = .systemFont(ofSize: 17, weight: .light)
     textLabel.textColor = .black
     imageView.image = UIImage(systemName: "film.circle.fill")
     textLabel.numberOfLines = 0
