@@ -24,17 +24,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="74" translatesAutoresizingMaskIntoConstraints="NO" id="vgb-Ro-DZK">
-                                <rect key="frame" x="15" y="59" width="363" height="709"/>
+                                <rect key="frame" x="15" y="59" width="363" height="684"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdm-eU-MDA">
-                                        <rect key="frame" x="127.66666666666666" y="0.0" width="107.66666666666666" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <rect key="frame" x="125.33333333333334" y="0.0" width="112.33333333333334" height="25.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8UL-gT-ase">
-                                        <rect key="frame" x="141" y="685" width="81.333333333333314" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <rect key="frame" x="135.33333333333334" y="656.33333333333337" width="92.666666666666657" height="27.666666666666629"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
                                         <color key="textColor" systemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -48,7 +48,7 @@
                             <constraint firstItem="vgb-Ro-DZK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="Qrz-pj-8Pp"/>
                             <constraint firstItem="vgb-Ro-DZK" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="b0h-I0-h9b"/>
                             <constraint firstItem="mWc-1z-FZV" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="60" id="mgR-b6-rDl"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="vgb-Ro-DZK" secondAttribute="bottom" constant="50" id="pti-HK-k51" userLabel="Safe Area.bottom = Stack View.bottom + 100"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="vgb-Ro-DZK" secondAttribute="bottom" constant="75" id="pti-HK-k51" userLabel="Safe Area.bottom = Stack View.bottom + 100"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="vgb-Ro-DZK" secondAttribute="trailing" constant="15" id="z9Y-We-nYq"/>
                         </constraints>
                     </view>

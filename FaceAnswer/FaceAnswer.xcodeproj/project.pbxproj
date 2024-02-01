@@ -31,7 +31,6 @@
 		FC3E11602B62DC70007E166E /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E115A2B62DC70007E166E /* QuestionsViewController.swift */; };
 		FC3E11612B62DC70007E166E /* QuestionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E115B2B62DC70007E166E /* QuestionsInteractor.swift */; };
 		FC3E11622B62DC70007E166E /* QuestionsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E115C2B62DC70007E166E /* QuestionsWireframe.swift */; };
-		FC3E116A2B62DC7F007E166E /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC3E11642B62DC7F007E166E /* Results.storyboard */; };
 		FC3E116B2B62DC7F007E166E /* ResultsInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11652B62DC7F007E166E /* ResultsInterfaces.swift */; };
 		FC3E116C2B62DC7F007E166E /* ResultsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11662B62DC7F007E166E /* ResultsPresenter.swift */; };
 		FC3E116D2B62DC7F007E166E /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11672B62DC7F007E166E /* ResultsViewController.swift */; };
@@ -56,6 +55,7 @@
 		FC3E11C42B6996CB007E166E /* Questions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC3E11C32B6996CB007E166E /* Questions.storyboard */; };
 		FC3E11C62B69BDE1007E166E /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11C52B69BDE1007E166E /* CoreDataService.swift */; };
 		FC3E11CA2B6A847C007E166E /* HeadGesture+VisionClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11C92B6A847C007E166E /* HeadGesture+VisionClass.swift */; };
+		FC3E11CC2B6BA0E9007E166E /* Results.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC3E11CB2B6BA0E9007E166E /* Results.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,7 +85,6 @@
 		FC3E115A2B62DC70007E166E /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
 		FC3E115B2B62DC70007E166E /* QuestionsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsInteractor.swift; sourceTree = "<group>"; };
 		FC3E115C2B62DC70007E166E /* QuestionsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsWireframe.swift; sourceTree = "<group>"; };
-		FC3E11642B62DC7F007E166E /* Results.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Results.storyboard; sourceTree = "<group>"; };
 		FC3E11652B62DC7F007E166E /* ResultsInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsInterfaces.swift; sourceTree = "<group>"; };
 		FC3E11662B62DC7F007E166E /* ResultsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPresenter.swift; sourceTree = "<group>"; };
 		FC3E11672B62DC7F007E166E /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		FC3E11C32B6996CB007E166E /* Questions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Questions.storyboard; sourceTree = "<group>"; };
 		FC3E11C52B69BDE1007E166E /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		FC3E11C92B6A847C007E166E /* HeadGesture+VisionClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeadGesture+VisionClass.swift"; sourceTree = "<group>"; };
+		FC3E11CB2B6BA0E9007E166E /* Results.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Results.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,7 +229,7 @@
 		FC3E11632B62DC74007E166E /* Results */ = {
 			isa = PBXGroup;
 			children = (
-				FC3E11642B62DC7F007E166E /* Results.storyboard */,
+				FC3E11CB2B6BA0E9007E166E /* Results.storyboard */,
 				FC3E11652B62DC7F007E166E /* ResultsInterfaces.swift */,
 				FC3E11662B62DC7F007E166E /* ResultsPresenter.swift */,
 				FC3E11672B62DC7F007E166E /* ResultsViewController.swift */,
@@ -360,7 +360,7 @@
 			files = (
 				FC3E111C2B62C5D6007E166E /* LaunchScreen.storyboard in Resources */,
 				FC3E11892B67AFBE007E166E /* CategoryCollectionViewCell.xib in Resources */,
-				FC3E116A2B62DC7F007E166E /* Results.storyboard in Resources */,
+				FC3E11CC2B6BA0E9007E166E /* Results.storyboard in Resources */,
 				FC3E11732B639F54007E166E /* Onboarding.storyboard in Resources */,
 				FC3E11C42B6996CB007E166E /* Questions.storyboard in Resources */,
 				FC3E11842B679306007E166E /* Home.storyboard in Resources */,

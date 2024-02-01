@@ -35,7 +35,11 @@ final class HomeViewController: UIViewController {
   private func setupUI() {
     title = "Face Answer"
     navigationController?.navigationBar.prefersLargeTitles = true
-    howToPlayLabel.text = "Move your head to right ⇨ for giving TRUE answer to a sentence OR move your head to left ⇦ for giving FALSE answer to a sentence."
+    howToPlayLabel.text = """
+    Move your head to right ⇨ for giving TRUE answer to a sentence
+    OR
+    Move your head to left ⇦ for giving FALSE answer to a sentence.
+    """
     textLabel.text = "Select a Category"
     collectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
   }
