@@ -29,10 +29,15 @@ final class QuestionsPresenter {
 // MARK: - Extensions -
 
 extension QuestionsPresenter: QuestionsPresenterInterface {
+//  func updateAllScores(_ score: Int64) {
+//    interactor.addScoreToAll(score)
+//  }
+  
   func getSelectedUserData() -> Dictionary<String, Bool> {
     let userSelecetion = interactor.fetchData()
     return userSelecetion
   }
+  
   func setSelectedUserScore(_ score: Int64) {
     interactor.saveScore(score)
   }

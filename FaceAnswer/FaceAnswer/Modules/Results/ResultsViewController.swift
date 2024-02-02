@@ -10,23 +10,44 @@
 import UIKit
 
 final class ResultsViewController: UIViewController {
-  
+
+  @IBOutlet weak var returnToHomeButton: UIButton!
+  @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var currentScoreLabel: UILabel!
   // MARK: - Public properties -
   
   var currentScore: Int64?
   var presenter: ResultsPresenterInterface!
-  
+  var allUserScores: [Int64] = []
+
   // MARK: - Lifecycle -
   
   override func viewDidLoad() {
     super.viewDidLoad()
     getCurrentUserScore()
+    getAllUserScores()
     setupUI()
+    tableView.dataSource = self
+    tableView.reloadData()
   }
   
   func setupUI() {
-    currentScoreLabel.text = "\(currentScore ?? 0)"
+    tableView.register(UINib(nibName: "ResultsTableViewCell", bundle: nil), forCellReuseIdentifier: ResultsTableViewCell.identifier)
+    let headerView = UIView()
+    headerView.frame = CGRect(x: 50, y: 0, width: 50, height: 35)
+    let label = UILabel()
+    label.frame = CGRect(x: 50, y: 0, width: tableView.frame.width - 25, height: 35)
+    label.text = "YOUR PREVIOUS RESULTS"
+    label.textColor = .darkText
+    headerView.addSubview(label)
+    tableView.tableHeaderView = headerView
+    returnToHomeButton.setTitleColor(.darkText, for: .normal)
+    returnToHomeButton.setTitle("Return to Home", for: .normal)
+    currentScoreLabel.text = "Current Quiz Result: \(currentScore ?? 0)"
+  }
+
+  @IBAction func returnToHome(_ sender: Any) {
+    presenter.returnToHome()
   }
 }
 
@@ -34,6 +55,22 @@ final class ResultsViewController: UIViewController {
 
 extension ResultsViewController: ResultsViewInterface {
   func getCurrentUserScore() {
-    self.currentScore = presenter.fetchScore()
+    self.currentScore = presenter.fetchCurrentScore()
+  }
+
+  func getAllUserScores() {
+    self.allUserScores = presenter.fetchAllScores()
+  }
+}
+
+extension ResultsViewController: UITableViewDataSource, UITableViewDelegate {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return allUserScores.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: ResultsTableViewCell.identifier, for: indexPath) as? ResultsTableViewCell else { return UITableViewCell() }
+    cell.configure(userName: "Username", scoreLabel: "Score: \(allUserScores[indexPath.row])")
+    return cell
   }
 }

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -21,19 +22,11 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="vdB-Tg-xvA"/>
                                 </constraints>
-                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Save Username"/>
                                 <connections>
                                     <action selector="onButtonClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WBr-6E-5U1"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y7L-Kk-eCX">
-                                <rect key="frame" x="120" y="659" width="153" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="vwH-8t-hhb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face Answer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7y1-iI-KrM">
                                 <rect key="frame" x="16" y="408.66666666666669" width="361" height="50.333333333333314"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
@@ -45,17 +38,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y7L-Kk-eCX">
+                                <rect key="frame" x="120" y="467" width="153" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="vwH-8t-hhb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Y7L-Kk-eCX" firstAttribute="top" secondItem="7y1-iI-KrM" secondAttribute="bottom" constant="200" id="09e-9r-oFJ"/>
+                            <constraint firstItem="Y7L-Kk-eCX" firstAttribute="top" secondItem="7y1-iI-KrM" secondAttribute="bottom" constant="8" id="09e-9r-oFJ"/>
                             <constraint firstItem="YIv-6Z-EvB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="5wC-56-8tA"/>
                             <constraint firstItem="7y1-iI-KrM" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="Atw-Dd-5rp"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YIv-6Z-EvB" secondAttribute="trailing" constant="60" id="SFV-r6-tgf"/>
                             <constraint firstItem="Y7L-Kk-eCX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="120" id="WI0-GV-aVI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YIv-6Z-EvB" secondAttribute="bottom" constant="40" id="Wcq-xd-PQ4"/>
-                            <constraint firstItem="YIv-6Z-EvB" firstAttribute="top" secondItem="Y7L-Kk-eCX" secondAttribute="bottom" constant="30" id="ZQI-fK-6Lm"/>
+                            <constraint firstItem="YIv-6Z-EvB" firstAttribute="top" secondItem="Y7L-Kk-eCX" secondAttribute="bottom" constant="222" id="ZQI-fK-6Lm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7y1-iI-KrM" secondAttribute="trailing" id="tpL-La-TvK"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Y7L-Kk-eCX" secondAttribute="trailing" constant="120" id="yCU-Kz-elK"/>
                         </constraints>

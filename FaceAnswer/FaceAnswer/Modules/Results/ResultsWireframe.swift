@@ -31,4 +31,7 @@ final class ResultsWireframe: BaseWireframe<ResultsViewController> {
 // MARK: - Extensions -
 
 extension ResultsWireframe: ResultsWireframeInterface {
+  func returnToHome() {
+    navigationController?.setRootWireframe(HomeWireframe())
+  }
 }

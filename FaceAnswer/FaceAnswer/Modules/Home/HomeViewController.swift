@@ -23,7 +23,6 @@ final class HomeViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
     collectionView.dataSource = self
     collectionView.delegate = self
     collectionView.reloadData()
@@ -50,7 +49,7 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: HomeViewInterface {
 }
 
-extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return categoryNames.count

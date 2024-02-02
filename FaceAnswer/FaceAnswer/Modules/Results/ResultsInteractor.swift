@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import CoreData
 
 final class ResultsInteractor {
   var currentScore: Int64?
@@ -17,12 +18,24 @@ final class ResultsInteractor {
 // MARK: - Extensions -
 
 extension ResultsInteractor: ResultsInteractorInterface {
-  func fetchScore() -> Int64 {
+  func fetchCurrentScore() -> Int64 {
     do {
       self.currentScore = try context.fetch(User.fetchRequest()).last?.score
     } catch {
       print(error.localizedDescription)
     }
     return currentScore!
+  }
+
+  func fetchAllScores() -> [Int64] {
+    var scores: [Int64] = []
+    do {
+      let _ = try context.fetch(User.fetchRequest()).map { user in
+        scores.append(user.score)
+      }
+    } catch {
+      print(error.localizedDescription)
+    }
+    return scores
   }
 }

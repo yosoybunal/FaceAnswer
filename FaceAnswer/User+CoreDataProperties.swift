@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  FaceAnswer
 //
-//  Created by Berkay Unal on 1.02.2024.
+//  Created by Berkay Unal on 2.02.2024.
 //
 //
 
@@ -16,8 +16,8 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
 
-    @NSManaged public var selectedCategory: Dictionary<String, Bool>?
     @NSManaged public var score: Int64
+    @NSManaged public var selectedCategory: Dictionary<String, Bool>?
 
 }
 

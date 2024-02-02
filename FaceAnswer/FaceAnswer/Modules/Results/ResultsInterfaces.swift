@@ -10,16 +10,21 @@
 import UIKit
 
 protocol ResultsWireframeInterface: WireframeInterface {
+  func returnToHome()
 }
 
 protocol ResultsViewInterface: ViewInterface {
   func getCurrentUserScore() 
+  func getAllUserScores()
 }
 
 protocol ResultsPresenterInterface: PresenterInterface {
-  func fetchScore() -> Int64
+  func fetchCurrentScore() -> Int64
+  func fetchAllScores() -> [Int64]
+  func returnToHome()
 }
 
 protocol ResultsInteractorInterface: InteractorInterface {
-  func fetchScore() -> Int64 
+  func fetchCurrentScore() -> Int64 
+  func fetchAllScores() -> [Int64]
 }

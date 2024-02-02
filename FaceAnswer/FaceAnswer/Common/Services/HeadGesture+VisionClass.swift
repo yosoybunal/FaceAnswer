@@ -124,6 +124,7 @@ class HeadGesture: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegat
 
   deinit {
     stopTimer()
+    captureSession.removeOutput(self.videoOutput)
   }
 
   func showAlert(message: String, title: String) {

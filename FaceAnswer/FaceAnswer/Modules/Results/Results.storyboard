@@ -18,31 +18,60 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHB-yu-hRw">
-                                <rect key="frame" x="115.66666666666667" y="384.33333333333331" width="161.66666666666663" height="83.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="163.33333333333334" y="185" width="66.333333333333343" height="33.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jNj-Q4-eBe">
+                                <rect key="frame" x="0.0" y="242.66666666666663" width="393" height="300"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="3sW-fg-p5r"/>
+                                    <constraint firstAttribute="width" constant="393" id="pS2-nv-A7D"/>
+                                </constraints>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwX-cW-JbJ">
+                                <rect key="frame" x="60" y="734" width="273" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="zRt-rW-6Ue"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Button"/>
+                                <connections>
+                                    <action selector="returnToHome:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7we-wg-Xw2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="LHB-yu-hRw" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="4ex-4l-UvN"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hwX-cW-JbJ" secondAttribute="trailing" constant="60" id="0Z6-q5-iUI"/>
+                            <constraint firstItem="LHB-yu-hRw" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-224.16666666666666" id="4ex-4l-UvN"/>
+                            <constraint firstItem="jNj-Q4-eBe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9B4-GL-b7P"/>
+                            <constraint firstItem="hwX-cW-JbJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="K1a-RG-pYo"/>
                             <constraint firstItem="LHB-yu-hRw" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="efk-XT-auh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="hwX-cW-JbJ" secondAttribute="bottom" constant="40" id="eqY-aB-ll5"/>
+                            <constraint firstItem="jNj-Q4-eBe" firstAttribute="top" secondItem="LHB-yu-hRw" secondAttribute="bottom" constant="24" id="wfm-Wm-Myn"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="currentScoreLabel" destination="LHB-yu-hRw" id="dEn-LG-HvI"/>
+                        <outlet property="returnToHomeButton" destination="hwX-cW-JbJ" id="d7h-cz-AdN"/>
+                        <outlet property="tableView" destination="jNj-Q4-eBe" id="cqX-h0-ygD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="63" y="20"/>
+            <point key="canvasLocation" x="61.832061068702288" y="19.718309859154932"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

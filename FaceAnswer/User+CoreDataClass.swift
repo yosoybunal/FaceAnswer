@@ -2,7 +2,7 @@
 //  User+CoreDataClass.swift
 //  FaceAnswer
 //
-//  Created by Berkay Unal on 30.01.2024.
+//  Created by Berkay Unal on 2.02.2024.
 //
 //
 

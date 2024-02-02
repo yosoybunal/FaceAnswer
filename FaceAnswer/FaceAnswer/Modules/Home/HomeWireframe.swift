@@ -33,5 +33,6 @@ final class HomeWireframe: BaseWireframe<HomeViewController> {
 extension HomeWireframe: HomeWireframeInterface {
   func navigateToQuestions(_ category: Dictionary<String, Bool>) {
     navigationController?.setRootWireframe(QuestionsWireframe(), animated: true)
+//    navigationController?.setRootWireframe(ResultsWireframe(), animated: true)
   }
 }

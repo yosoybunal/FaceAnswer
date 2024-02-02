@@ -32,12 +32,16 @@ final class OnboardingViewController: UIViewController, UITextFieldDelegate {
     appName.text = "Face Answer"
     usernameField.placeholder = "Enter a username"
     usernameField.delegate = self
-    saveButton.applyGradient(colours: [Colors.gradientColor0, Colors.gradientColor1],
-                                     cornerRadius: 15,
-                                     startPoint: CGPoint(x: 0, y: 0),
-                                     endPoint: CGPoint(x: 0, y: 1))
+    usernameField.keyboardType = .asciiCapable
+    usernameField.returnKeyType = .done
+    usernameField.enablesReturnKeyAutomatically = true
     saveButton.setTitle("Save Username", for: .normal)
-    saveButton.setTitleColor(.black, for: .normal)
+    saveButton.setTitleColor(.darkText, for: .normal)
+  }
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    usernameField.resignFirstResponder()
+    return true
   }
 }
 
