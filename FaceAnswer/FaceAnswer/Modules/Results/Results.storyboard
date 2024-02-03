@@ -40,12 +40,12 @@
                                 <color key="textColor" systemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jNj-Q4-eBe">
-                                <rect key="frame" x="0.0" y="276" width="393" height="300"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jNj-Q4-eBe">
+                                <rect key="frame" x="50" y="276" width="283" height="300"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="3sW-fg-p5r"/>
-                                    <constraint firstAttribute="width" constant="393" id="pS2-nv-A7D"/>
+                                    <constraint firstAttribute="width" constant="283" id="pS2-nv-A7D"/>
                                 </constraints>
                             </tableView>
                         </subviews>
@@ -55,7 +55,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hwX-cW-JbJ" secondAttribute="trailing" constant="60" id="0Z6-q5-iUI"/>
                             <constraint firstItem="eTs-Wb-qYk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="1Ul-Ic-YM6"/>
                             <constraint firstItem="LHB-yu-hRw" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-224.16666666666666" id="4ex-4l-UvN"/>
-                            <constraint firstItem="jNj-Q4-eBe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9B4-GL-b7P"/>
+                            <constraint firstItem="jNj-Q4-eBe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="9B4-GL-b7P"/>
                             <constraint firstItem="jNj-Q4-eBe" firstAttribute="top" secondItem="eTs-Wb-qYk" secondAttribute="bottom" id="DpF-Pz-F4k"/>
                             <constraint firstItem="hwX-cW-JbJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="K1a-RG-pYo"/>
                             <constraint firstItem="LHB-yu-hRw" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="efk-XT-auh"/>
