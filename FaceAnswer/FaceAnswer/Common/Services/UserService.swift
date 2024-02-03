@@ -20,4 +20,8 @@ class UserService {
   func setUserName(_ userName: String) {
     userDefaults.setValue(userName, forKey: "userNick")
   }
+
+  func getUserName() -> String? {
+    userDefaults.string(forKey: "userNick")
+  }
 }

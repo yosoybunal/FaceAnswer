@@ -27,12 +27,6 @@ class HeadGesture: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegat
     super.viewDidLoad()
   }
 
-  func startTimer() {
-  }
-
-  func stopTimer() {
-  }
-
   func setupCamera() {
     guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else { return }
     let deviceInput: AVCaptureDeviceInput
@@ -62,20 +56,16 @@ class HeadGesture: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegat
       return
     }
 
-    // Set up the preview layer
     previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
     previewLayer?.videoGravity = .resizeAspectFill
-    // Set up the preview layer
     previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
     previewLayer?.videoGravity = .resizeAspectFill
 
-    // Adjust the size of the preview layer frame
     let newWidth: CGFloat = 300.0
     let newHeight: CGFloat = 300.0
     previewLayer?.frame = CGRect(x: view.layer.frame.midX - 150, y: view.layer.frame.midY - 150, width: newWidth, height: newHeight)
     view.layer.insertSublayer(previewLayer!, at: 0)
 
-    // Start the capture session
     captureSession.startRunning()
   }
 
@@ -93,12 +83,8 @@ class HeadGesture: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegat
       guard let faceObservation = faceDetectionRequest.results?.first as? VNFaceObservation else {
         return
       }
-
-      // Detect head movement by checking face pose
       let yaw = faceObservation.yaw
       if let yaw = yaw?.decimalValue {
-        // Yaw gives the rotation of the head around the vertical axis
-        // Detect head movement to answer questions
         if yaw < -0.3 {
           // Head movement to the right (true)
           handleHeadMovement(answer: true)
@@ -123,11 +109,5 @@ class HeadGesture: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegat
   }
 
   deinit {
-    stopTimer()
-    captureSession.removeOutput(self.videoOutput)
   }
-
-  func showAlert(message: String, title: String) {
-  }
-
 }

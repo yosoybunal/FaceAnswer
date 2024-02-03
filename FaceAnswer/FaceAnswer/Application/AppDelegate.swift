@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     if shouldShowHome {
-      initialViewController.setRootWireframe(OnboardingWireframe())
+      initialViewController.setRootWireframe(HomeWireframe())
     } else {
       
 // MARK: - REPLACE THIS WIREFRAME WITH OnboardingWireframe

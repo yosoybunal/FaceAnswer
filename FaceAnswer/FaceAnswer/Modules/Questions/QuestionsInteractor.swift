@@ -13,7 +13,6 @@ final class QuestionsInteractor {
   
   var selectedCategory: Dictionary<String, Bool>?
   let context = CoreDataService.shared.context
-  var user: User?
 }
 
 // MARK: - Extensions -
@@ -30,8 +29,8 @@ extension QuestionsInteractor: QuestionsInteractorInterface {
   }
   
   func saveScore(_ score: Int64) {
-    self.user = User(context: context)
-    user?.score = score
+    let user = CoreDataService.shared.user
+    user.score = score
     do {
       try context.save()
     }
@@ -39,18 +38,4 @@ extension QuestionsInteractor: QuestionsInteractorInterface {
       print(error.localizedDescription)
     }
   }
-
-//  func addScoreToAll(_ score: Int64) {
-////    let user = User(context: self.context)
-//    let allUserScores = AllScores(context: context)
-//    allUserScores.allScores = score
-//    allUserScores.user = self.user
-//    self.user?.addToAllUserScores(allUserScores)
-//    do {
-//      try context.save()
-//    }
-//    catch {
-//      print(error.localizedDescription)
-//    }
-//  }
 }

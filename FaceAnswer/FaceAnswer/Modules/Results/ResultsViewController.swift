@@ -37,7 +37,7 @@ final class ResultsViewController: UIViewController {
     headerView.frame = CGRect(x: 50, y: 0, width: 50, height: 35)
     let label = UILabel()
     label.frame = CGRect(x: 50, y: 0, width: tableView.frame.width - 25, height: 35)
-    label.text = "YOUR PREVIOUS RESULTS"
+    label.text = "YOUR RESULTS"
     label.textColor = .darkText
     headerView.addSubview(label)
     tableView.tableHeaderView = headerView
@@ -70,7 +70,7 @@ extension ResultsViewController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: ResultsTableViewCell.identifier, for: indexPath) as? ResultsTableViewCell else { return UITableViewCell() }
-    cell.configure(userName: "Username", scoreLabel: "Score: \(allUserScores[indexPath.row])")
+    cell.configure(userName: "\(UserService.shared.getUserName() ?? "Username")", scoreLabel: "Score: \(allUserScores[indexPath.row])")
     return cell
   }
 }

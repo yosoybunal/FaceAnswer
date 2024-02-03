@@ -30,44 +30,33 @@ final class QuestionsViewController: HeadGesture {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    scoreLabel.text = "Score: \(score)"
+    scoreLabel.text = "Score: 0"
     timerLabel.text = "TIME STARTS NOW!"
     getUserData()
     keysArray = Array(selectedCategory!.keys)
     valuesArray = Array(selectedCategory!.values)
     updateQuestion()
     setupCamera()
-    startTimer()
   }
 
-  override func startTimer() {
-
-    countdownTimer = Timer.scheduledTimer(timeInterval: 1,
-                                          target: self,
-                                          selector: #selector(updateTimerUI),
-                                          userInfo: nil,
-                                          repeats: true)
-  }
-
-
-  override func stopTimer() {
+  func stopTimer() {
     countdownTimer?.invalidate()
-    countdownTimer = nil
-    DispatchQueue.main.async {
-      self.timerLabel.text = ""
-      self.questionLabel.text = ""
-    }
+//    countdownTimer = nil
+    timerLabel.text = ""
+    questionLabel.text = ""
   }
 
   func updateQuestion() {
     guard currentIndex < keysArray.count else {
       presenter.setSelectedUserScore(score)
-      //      presenter.updateAllScores(score)
-      countdownTimer?.invalidate()
-      captureSession.removeOutput(videoOutput)
       presenter.navigateToResults()
       return
     }
+    countdownTimer = Timer.scheduledTimer(timeInterval: 1,
+                                          target: self,
+                                          selector: #selector(updateTimerUI),
+                                          userInfo: nil,
+                                          repeats: true)
     let currentKey = keysArray[currentIndex]
     questionLabel.text = "\(currentKey)"
     currentIndex += 1
@@ -99,34 +88,23 @@ final class QuestionsViewController: HeadGesture {
     } else {
       stopTimer()
       captureSession.removeOutput(videoOutput)
-      showAlert(message: "Time is up.", title: "Sorry!")
+      showAlert(message: "The correct answer was \(valuesArray[currentIndex]).", title: "Time is up!")
     }
   }
 
-  override func showAlert(message: String, title: String) {
+  func showAlert(message: String, title: String) {
     let alert = UIAlertController(title: title.uppercased(),
                                   message: message,
                                   preferredStyle: .alert)
     let action = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-      //      if self!.currentIndex < (self?.keysArray.count)! {
       self?.restartTracking()
       self?.updateQuestion()
-      self?.startTimer()
       self?.remainingTime = 10
       self?.timerLabel.text = "10 seconds"
-      //      } else {
-      //        self?.updateQuestion()
-      //      }
     }
     alert.addAction(action)
     present(alert, animated: true, completion: nil)
   }
-
-  //  deinit {
-  //    countdownTimer?.invalidate()
-  //    captureSession.removeOutput(self.videoOutput)
-  //    print("This deinit got executed!")
-  //  }
 }
 
 // MARK: - Extensions -

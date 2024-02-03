@@ -16,9 +16,9 @@ final class OnboardingViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var gradientView: UIView!
   @IBOutlet weak var appName: UILabel!
   @IBOutlet weak var saveButton: UIButton!
-  @IBOutlet weak var usernameField: UITextField!
+  @IBOutlet weak var userNameField: UITextField!
 
-  var userName: String?
+  var userName: String = ""
   var presenter: OnboardingPresenterInterface!
 
   // MARK: - Lifecycle -
@@ -26,22 +26,33 @@ final class OnboardingViewController: UIViewController, UITextFieldDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
+    setupTextField()
   }
 
   func setupUI() {
     appName.text = "Face Answer"
-    usernameField.placeholder = "Enter a username"
-    usernameField.delegate = self
-    usernameField.keyboardType = .asciiCapable
-    usernameField.returnKeyType = .done
-    usernameField.enablesReturnKeyAutomatically = true
+    userNameField.placeholder = "Enter a username"
     saveButton.setTitle("Save Username", for: .normal)
     saveButton.setTitleColor(.darkText, for: .normal)
   }
-  
+
+  func setupTextField() {
+    userNameField.delegate = self
+    userNameField.keyboardType = .asciiCapable
+    userNameField.returnKeyType = .done
+    userNameField.enablesReturnKeyAutomatically = true
+  }
+
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    usernameField.resignFirstResponder()
+    userNameField.resignFirstResponder()
     return true
+  }
+
+  func showAlert() {
+    let alert = UIAlertController(title: "Empty Username", message: "Please fill a valid username between 2-15 characters.", preferredStyle: .actionSheet)
+    let alertAction = UIAlertAction(title: "OK", style: .default)
+    alert.addAction(alertAction)
+    present(alert, animated: true, completion: nil)
   }
 }
 
@@ -49,8 +60,12 @@ final class OnboardingViewController: UIViewController, UITextFieldDelegate {
 
 extension OnboardingViewController: OnboardingViewInterface {
   @IBAction func onButtonClick(_ sender: Any) {
-    self.userName = usernameField.text ?? "-"
-    presenter.shouldNavigate(userName!)
+    if userNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || userNameField.text!.count < 2 || userNameField.text!.count > 15 {
+      showAlert()
+    } else {
+      self.userName = userNameField.text ?? ""
+      presenter.shouldNavigate(userName)
+    }
   }
 }
 
