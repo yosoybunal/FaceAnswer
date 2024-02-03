@@ -33,14 +33,6 @@ final class ResultsViewController: UIViewController {
   
   func setupUI() {
     tableView.register(UINib(nibName: "ResultsTableViewCell", bundle: nil), forCellReuseIdentifier: ResultsTableViewCell.identifier)
-    let headerView = UIView()
-    headerView.frame = CGRect(x: 50, y: 0, width: 50, height: 35)
-    let label = UILabel()
-    label.frame = CGRect(x: 50, y: 0, width: tableView.frame.width - 25, height: 35)
-    label.text = "YOUR RESULTS"
-    label.textColor = .darkText
-    headerView.addSubview(label)
-    tableView.tableHeaderView = headerView
     returnToHomeButton.setTitleColor(.darkText, for: .normal)
     returnToHomeButton.setTitle("Return to Home", for: .normal)
     currentScoreLabel.text = "Current Quiz Result: \(currentScore ?? 0)"
