@@ -58,6 +58,9 @@
 		FC3E11D12B6BC486007E166E /* ResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC3E11CF2B6BC486007E166E /* ResultsTableViewCell.xib */; };
 		FC9E4A772B6D3D57007CECCE /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9E4A752B6D3D57007CECCE /* User+CoreDataClass.swift */; };
 		FC9E4A782B6D3D57007CECCE /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9E4A762B6D3D57007CECCE /* User+CoreDataProperties.swift */; };
+		FC9E4A7C2B6FA7DD007CECCE /* timeisup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC9E4A792B6FA7DD007CECCE /* timeisup.mp3 */; };
+		FC9E4A7D2B6FA7DD007CECCE /* correctanswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC9E4A7A2B6FA7DD007CECCE /* correctanswer.mp3 */; };
+		FC9E4A822B6FAB75007CECCE /* wronganswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC9E4A812B6FAB75007CECCE /* wronganswer.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +117,9 @@
 		FC3E11CF2B6BC486007E166E /* ResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsTableViewCell.xib; sourceTree = "<group>"; };
 		FC9E4A752B6D3D57007CECCE /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		FC9E4A762B6D3D57007CECCE /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		FC9E4A792B6FA7DD007CECCE /* timeisup.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timeisup.mp3; sourceTree = "<group>"; };
+		FC9E4A7A2B6FA7DD007CECCE /* correctanswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correctanswer.mp3; sourceTree = "<group>"; };
+		FC9E4A812B6FAB75007CECCE /* wronganswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wronganswer.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +164,7 @@
 		FC3E112F2B62C6DA007E166E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FC9E4A832B6FAC1E007CECCE /* Sounds */,
 				FC3E11802B644986007E166E /* Services */,
 				FC3E117D2B64489A007E166E /* Models */,
 				FC3E11762B63C849007E166E /* Extensions */,
@@ -314,6 +321,16 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		FC9E4A832B6FAC1E007CECCE /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				FC9E4A7A2B6FA7DD007CECCE /* correctanswer.mp3 */,
+				FC9E4A792B6FA7DD007CECCE /* timeisup.mp3 */,
+				FC9E4A812B6FAB75007CECCE /* wronganswer.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -374,12 +391,15 @@
 			files = (
 				FC3E111C2B62C5D6007E166E /* LaunchScreen.storyboard in Resources */,
 				FC3E11892B67AFBE007E166E /* CategoryCollectionViewCell.xib in Resources */,
+				FC9E4A822B6FAB75007CECCE /* wronganswer.mp3 in Resources */,
 				FC3E11CC2B6BA0E9007E166E /* Results.storyboard in Resources */,
 				FC3E11732B639F54007E166E /* Onboarding.storyboard in Resources */,
 				FC3E11C42B6996CB007E166E /* Questions.storyboard in Resources */,
+				FC9E4A7D2B6FA7DD007CECCE /* correctanswer.mp3 in Resources */,
 				FC3E11842B679306007E166E /* Home.storyboard in Resources */,
 				FC3E11D12B6BC486007E166E /* ResultsTableViewCell.xib in Resources */,
 				FC3E11192B62C5D6007E166E /* Assets.xcassets in Resources */,
+				FC9E4A7C2B6FA7DD007CECCE /* timeisup.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +605,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -614,6 +635,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import AVFAudio
 
 final class QuestionsViewController: HeadGesture {
 
@@ -25,6 +26,7 @@ final class QuestionsViewController: HeadGesture {
   var valuesArray: [Bool] = []
   var currentIndex = 0
   var score: Int64 = 0
+  var audioPlayer: AVAudioPlayer?
 
   //   MARK: - Lifecycle -
 
@@ -41,13 +43,13 @@ final class QuestionsViewController: HeadGesture {
 
   func stopTimer() {
     countdownTimer?.invalidate()
-//    countdownTimer = nil
     timerLabel.text = ""
     questionLabel.text = ""
   }
 
   func updateQuestion() {
     guard currentIndex < keysArray.count else {
+      captureSession.removeOutput(videoOutput)
       presenter.setSelectedUserScore(score)
       presenter.navigateToResults()
       return
@@ -70,12 +72,14 @@ final class QuestionsViewController: HeadGesture {
         self.showAlert(message: "Your answer is Correct", title: "Great job!")
         self.score += 10
         self.scoreLabel.text = "Score: \(self.score)"
+        self.playCorrectAnswerSound()
       }
     }  else {
       DispatchQueue.main.async {
-        self.showAlert(message: "Your answer is Wrong", title: "Not this time!")
         self.stopTimer()
         self.captureSession.removeOutput(self.videoOutput)
+        self.showAlert(message: "Your answer is Wrong", title: "Not this time!")
+        self.playWrongAnswerSound()
       }
     }
 
@@ -89,6 +93,7 @@ final class QuestionsViewController: HeadGesture {
       stopTimer()
       captureSession.removeOutput(videoOutput)
       showAlert(message: "The correct answer was \(valuesArray[currentIndex]).", title: "Time is up!")
+      playTimeIsUpSound()
     }
   }
 
@@ -104,6 +109,36 @@ final class QuestionsViewController: HeadGesture {
     }
     alert.addAction(action)
     present(alert, animated: true, completion: nil)
+  }
+
+  func playCorrectAnswerSound() {
+    guard let correctAnswerURL = Bundle.main.url(forResource: "correctanswer", withExtension: "mp3") else { return }
+    do{
+      audioPlayer = try AVAudioPlayer(contentsOf: correctAnswerURL)
+      audioPlayer?.play()
+    } catch {
+      print("Error playing sound: \(error.localizedDescription)")
+    }
+  }
+
+  func playWrongAnswerSound() {
+    guard let wrongAnswerURL = Bundle.main.url(forResource: "wronganswer", withExtension: "mp3") else { return }
+    do{
+      audioPlayer = try AVAudioPlayer(contentsOf: wrongAnswerURL)
+      audioPlayer?.play()
+    } catch {
+      print("Error playing sound: \(error.localizedDescription)")
+    }
+  }
+
+  func playTimeIsUpSound() {
+    guard let timeIsUpURL = Bundle.main.url(forResource: "timeisup", withExtension: "mp3") else { return }
+    do{
+      audioPlayer = try AVAudioPlayer(contentsOf: timeIsUpURL)
+      audioPlayer?.play()
+    } catch {
+      print("Error playing sound: \(error.localizedDescription)")
+    }
   }
 }
 
