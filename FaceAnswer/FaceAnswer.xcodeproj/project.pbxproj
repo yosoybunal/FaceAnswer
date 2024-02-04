@@ -47,7 +47,6 @@
 		FC3E118D2B67E976007E166E /* GradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E118C2B67E976007E166E /* GradientBackground.swift */; };
 		FC3E118F2B683051007E166E /* EuropeanCinemaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E118E2B683051007E166E /* EuropeanCinemaData.swift */; };
 		FC3E11942B68503E007E166E /* GalatasarayLegendsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11932B68503E007E166E /* GalatasarayLegendsData.swift */; };
-		FC3E11962B685609007E166E /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11952B685609007E166E /* Categories.swift */; };
 		FC3E11992B68F9F1007E166E /* FaceAnswer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11972B68F9F1007E166E /* FaceAnswer.xcdatamodeld */; };
 		FC3E11C42B6996CB007E166E /* Questions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC3E11C32B6996CB007E166E /* Questions.storyboard */; };
 		FC3E11C62B69BDE1007E166E /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11C52B69BDE1007E166E /* CoreDataService.swift */; };
@@ -105,7 +104,6 @@
 		FC3E118C2B67E976007E166E /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
 		FC3E118E2B683051007E166E /* EuropeanCinemaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuropeanCinemaData.swift; sourceTree = "<group>"; };
 		FC3E11932B68503E007E166E /* GalatasarayLegendsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalatasarayLegendsData.swift; sourceTree = "<group>"; };
-		FC3E11952B685609007E166E /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		FC3E11982B68F9F1007E166E /* FaceAnswer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FaceAnswer.xcdatamodel; sourceTree = "<group>"; };
 		FC3E11C32B6996CB007E166E /* Questions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Questions.storyboard; sourceTree = "<group>"; };
 		FC3E11C52B69BDE1007E166E /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
@@ -292,7 +290,6 @@
 				FC3E118C2B67E976007E166E /* GradientBackground.swift */,
 				FC3E117B2B63FA0B007E166E /* Colors.swift */,
 				FC3E118E2B683051007E166E /* EuropeanCinemaData.swift */,
-				FC3E11952B685609007E166E /* Categories.swift */,
 				FC3E11932B68503E007E166E /* GalatasarayLegendsData.swift */,
 				FC3E11C52B69BDE1007E166E /* CoreDataService.swift */,
 				FC3E11C92B6A847C007E166E /* HeadGesture+VisionClass.swift */,
@@ -417,7 +414,6 @@
 				FC3E11542B62DC36007E166E /* HomeWireframe.swift in Sources */,
 				FC3E11102B62C5D4007E166E /* AppDelegate.swift in Sources */,
 				FC3E11522B62DC36007E166E /* HomeViewController.swift in Sources */,
-				FC3E11962B685609007E166E /* Categories.swift in Sources */,
 				FC3E11CA2B6A847C007E166E /* HeadGesture+VisionClass.swift in Sources */,
 				FC3E112D2B62C6CD007E166E /* ViewInterface.swift in Sources */,
 				FC3E11452B62DBF8007E166E /* OnboardingPresenter.swift in Sources */,
