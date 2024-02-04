@@ -14,14 +14,15 @@ final class ResultsViewController: UIViewController {
   @IBOutlet weak var returnToHomeButton: UIButton!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var currentScoreLabel: UILabel!
+
   // MARK: - Public properties -
-  
+
   var currentScore: Int64?
   var presenter: ResultsPresenterInterface!
   var allUserScores: [Int64] = []
 
   // MARK: - Lifecycle -
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     getCurrentUserScore()
@@ -30,8 +31,8 @@ final class ResultsViewController: UIViewController {
     tableView.dataSource = self
     tableView.reloadData()
   }
-  
-  func setupUI() {
+
+  private func setupUI() {
     tableView.register(UINib(nibName: "ResultsTableViewCell", bundle: nil), forCellReuseIdentifier: ResultsTableViewCell.identifier)
     tableView.showsVerticalScrollIndicator = false
     tableView.showsHorizontalScrollIndicator = false
@@ -61,10 +62,10 @@ extension ResultsViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return allUserScores.count
   }
-  
+
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: ResultsTableViewCell.identifier, for: indexPath) as? ResultsTableViewCell else { return UITableViewCell() }
-    cell.configure(userName: "\(UserService.shared.getUserName() ?? "Username")", scoreLabel: "Score: \(allUserScores[indexPath.row])")
+    cell.configure(userName: "\(UserDefaultsService.shared.getUserName() ?? "Username")", scoreLabel: "Score: \(allUserScores[indexPath.row])")
     return cell
   }
 }

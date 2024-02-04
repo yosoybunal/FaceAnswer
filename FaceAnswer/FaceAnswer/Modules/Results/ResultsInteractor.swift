@@ -11,7 +11,7 @@ import Foundation
 import CoreData
 
 final class ResultsInteractor {
-  var currentScore: Int64?
+  fileprivate var currentScore: Int64?
   let context = CoreDataService.shared.context
 }
 
@@ -26,7 +26,7 @@ extension ResultsInteractor: ResultsInteractorInterface {
     }
     return currentScore!
   }
-
+  
   func fetchAllScores() -> [Int64] {
     var scores: [Int64] = []
     do {

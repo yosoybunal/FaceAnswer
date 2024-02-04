@@ -9,15 +9,15 @@ import UIKit
 
 class GradientView: UIView {
 
-    override init(frame: CGRect) {
-      super.init(frame: frame)
+  override init(frame: CGRect) {
+    super.init(frame: frame)
 
-      self.isOpaque = false
-    }
+    self.isOpaque = false
+  }
 
-    required init?(coder aDecoder: NSCoder) {
-      super.init(coder: aDecoder)
-    }
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+  }
 
   override func draw(_ rect: CGRect) {
     super.draw(rect)
@@ -25,12 +25,7 @@ class GradientView: UIView {
     UIColor.white.setFill()
     UIRectFill(rect)
 
-    //// General Declarations
     let context = UIGraphicsGetCurrentContext()!
-
-
-
-    //// Gradient Declarations
     let paint0_linear2 = CGGradient(colorsSpace: nil, colors: [Colors.gradientColor0.cgColor, Colors.gradientColor1.cgColor] as CFArray, locations: [0, 1])!
 
     //// Bezier Drawing

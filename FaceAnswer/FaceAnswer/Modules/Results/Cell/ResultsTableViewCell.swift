@@ -9,22 +9,15 @@ import UIKit
 
 class ResultsTableViewCell: UITableViewCell {
 
+  static let identifier = "tableViewCell"
+
+  // MARK: - Public Properties -
+
   @IBOutlet weak var userName: UILabel!
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var iconView: UIImageView!
 
-  static let identifier = "tableViewCell"
-
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    // Initialization code
-  }
-
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
-
-    // Configure the view for the selected state
-  }
+  // MARK: - Configuration -
 
   func configure(userName: String, scoreLabel: String) {
     self.iconView.image = UIImage(systemName: "person.fill")

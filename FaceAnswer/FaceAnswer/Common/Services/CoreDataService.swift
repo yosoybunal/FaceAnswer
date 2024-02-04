@@ -17,6 +17,5 @@ final class CoreDataService {
   //MARK: - Constants
 
   let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
   lazy var user = User(context: context)
 }

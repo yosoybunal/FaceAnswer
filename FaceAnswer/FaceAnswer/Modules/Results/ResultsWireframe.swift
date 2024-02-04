@@ -10,22 +10,22 @@
 import UIKit
 
 final class ResultsWireframe: BaseWireframe<ResultsViewController> {
-
-    // MARK: - Private properties -
-
-    private let storyboard = UIStoryboard(name: "Results", bundle: nil)
-
-    // MARK: - Module setup -
-
-    init() {
-        let moduleViewController = storyboard.instantiateViewController(ofType: ResultsViewController.self)
-        super.init(viewController: moduleViewController)
-
-        let interactor = ResultsInteractor()
-        let presenter = ResultsPresenter(view: moduleViewController, interactor: interactor, wireframe: self)
-        moduleViewController.presenter = presenter
-    }
-
+  
+  // MARK: - Private properties -
+  
+  private let storyboard = UIStoryboard(name: "Results", bundle: nil)
+  
+  // MARK: - Module setup -
+  
+  init() {
+    let moduleViewController = storyboard.instantiateViewController(ofType: ResultsViewController.self)
+    super.init(viewController: moduleViewController)
+    
+    let interactor = ResultsInteractor()
+    let presenter = ResultsPresenter(view: moduleViewController, interactor: interactor, wireframe: self)
+    moduleViewController.presenter = presenter
+  }
+  
 }
 
 // MARK: - Extensions -

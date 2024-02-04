@@ -10,18 +10,18 @@
 import Foundation
 
 final class HomePresenter {
-
+  
   static let galatasarayLegends = GalatasarayLegendsData()
   static let europeanCinema = EuropeanCinemaData()
-
+  
   // MARK: - Private properties -
-
+  
   private unowned let view: HomeViewInterface
   private let interactor: HomeInteractorInterface
   private let wireframe: HomeWireframeInterface
-
+  
   // MARK: - Lifecycle -
-
+  
   init(view: HomeViewInterface, interactor: HomeInteractorInterface, wireframe: HomeWireframeInterface) {
     self.view = view
     self.interactor = interactor

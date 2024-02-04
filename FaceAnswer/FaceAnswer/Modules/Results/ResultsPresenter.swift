@@ -10,20 +10,20 @@
 import Foundation
 
 final class ResultsPresenter {
-    
-    // MARK: - Private properties -
 
-    private unowned let view: ResultsViewInterface
-    private let interactor: ResultsInteractorInterface
-    private let wireframe: ResultsWireframeInterface
+  // MARK: - Private properties -
 
-    // MARK: - Lifecycle -
+  private unowned let view: ResultsViewInterface
+  private let interactor: ResultsInteractorInterface
+  private let wireframe: ResultsWireframeInterface
 
-    init(view: ResultsViewInterface, interactor: ResultsInteractorInterface, wireframe: ResultsWireframeInterface) {
-        self.view = view
-        self.interactor = interactor
-        self.wireframe = wireframe
-    }
+  // MARK: - Lifecycle -
+  
+  init(view: ResultsViewInterface, interactor: ResultsInteractorInterface, wireframe: ResultsWireframeInterface) {
+    self.view = view
+    self.interactor = interactor
+    self.wireframe = wireframe
+  }
 }
 
 // MARK: - Extensions -

@@ -40,11 +40,10 @@
 		FC3E11752B63A9EA007E166E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11742B63A9EA007E166E /* GradientView.swift */; };
 		FC3E11782B63C866007E166E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11772B63C866007E166E /* UIView+Extension.swift */; };
 		FC3E117C2B63FA0B007E166E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E117B2B63FA0B007E166E /* Colors.swift */; };
-		FC3E11822B64499B007E166E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11812B64499B007E166E /* UserService.swift */; };
+		FC3E11822B64499B007E166E /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11812B64499B007E166E /* UserDefaultsService.swift */; };
 		FC3E11842B679306007E166E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC3E11832B679306007E166E /* Home.storyboard */; };
 		FC3E11882B67AFBE007E166E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11862B67AFBE007E166E /* CategoryCollectionViewCell.swift */; };
 		FC3E11892B67AFBE007E166E /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC3E11872B67AFBE007E166E /* CategoryCollectionViewCell.xib */; };
-		FC3E118B2B67C126007E166E /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E118A2B67C126007E166E /* UIButton+Extension.swift */; };
 		FC3E118D2B67E976007E166E /* GradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E118C2B67E976007E166E /* GradientBackground.swift */; };
 		FC3E118F2B683051007E166E /* EuropeanCinemaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E118E2B683051007E166E /* EuropeanCinemaData.swift */; };
 		FC3E11942B68503E007E166E /* GalatasarayLegendsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E11932B68503E007E166E /* GalatasarayLegendsData.swift */; };
@@ -99,11 +98,10 @@
 		FC3E11742B63A9EA007E166E /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		FC3E11772B63C866007E166E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		FC3E117B2B63FA0B007E166E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		FC3E11812B64499B007E166E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		FC3E11812B64499B007E166E /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		FC3E11832B679306007E166E /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		FC3E11862B67AFBE007E166E /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		FC3E11872B67AFBE007E166E /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
-		FC3E118A2B67C126007E166E /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		FC3E118C2B67E976007E166E /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
 		FC3E118E2B683051007E166E /* EuropeanCinemaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuropeanCinemaData.swift; sourceTree = "<group>"; };
 		FC3E11932B68503E007E166E /* GalatasarayLegendsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalatasarayLegendsData.swift; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 		FC3E112F2B62C6DA007E166E /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				FC9E4A832B6FAC1E007CECCE /* Sounds */,
 				FC3E11802B644986007E166E /* Services */,
 				FC3E117D2B64489A007E166E /* Models */,
 				FC3E11762B63C849007E166E /* Extensions */,
@@ -255,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				FC3E11182B62C5D6007E166E /* Assets.xcassets */,
+				FC9E4A832B6FAC1E007CECCE /* Sounds */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -272,7 +270,6 @@
 			isa = PBXGroup;
 			children = (
 				FC3E11772B63C866007E166E /* UIView+Extension.swift */,
-				FC3E118A2B67C126007E166E /* UIButton+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -280,6 +277,7 @@
 		FC3E117D2B64489A007E166E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FC3E11972B68F9F1007E166E /* FaceAnswer.xcdatamodeld */,
 				FC9E4A752B6D3D57007CECCE /* User+CoreDataClass.swift */,
 				FC9E4A762B6D3D57007CECCE /* User+CoreDataProperties.swift */,
 			);
@@ -289,14 +287,13 @@
 		FC3E11802B644986007E166E /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				FC3E11812B64499B007E166E /* UserService.swift */,
+				FC3E11812B64499B007E166E /* UserDefaultsService.swift */,
 				FC3E11742B63A9EA007E166E /* GradientView.swift */,
 				FC3E118C2B67E976007E166E /* GradientBackground.swift */,
 				FC3E117B2B63FA0B007E166E /* Colors.swift */,
 				FC3E118E2B683051007E166E /* EuropeanCinemaData.swift */,
 				FC3E11952B685609007E166E /* Categories.swift */,
 				FC3E11932B68503E007E166E /* GalatasarayLegendsData.swift */,
-				FC3E11972B68F9F1007E166E /* FaceAnswer.xcdatamodeld */,
 				FC3E11C52B69BDE1007E166E /* CoreDataService.swift */,
 				FC3E11C92B6A847C007E166E /* HeadGesture+VisionClass.swift */,
 			);
@@ -428,7 +425,6 @@
 				FC3E112A2B62C6CD007E166E /* FormatterInterface.swift in Sources */,
 				FC3E118D2B67E976007E166E /* GradientBackground.swift in Sources */,
 				FC3E11612B62DC70007E166E /* QuestionsInteractor.swift in Sources */,
-				FC3E118B2B67C126007E166E /* UIButton+Extension.swift in Sources */,
 				FC3E11D02B6BC486007E166E /* ResultsTableViewCell.swift in Sources */,
 				FC3E11482B62DBF8007E166E /* OnboardingWireframe.swift in Sources */,
 				FC9E4A772B6D3D57007CECCE /* User+CoreDataClass.swift in Sources */,
@@ -448,7 +444,7 @@
 				FC3E115F2B62DC70007E166E /* QuestionsPresenter.swift in Sources */,
 				FC3E11532B62DC36007E166E /* HomeInteractor.swift in Sources */,
 				FC3E116D2B62DC7F007E166E /* ResultsViewController.swift in Sources */,
-				FC3E11822B64499B007E166E /* UserService.swift in Sources */,
+				FC3E11822B64499B007E166E /* UserDefaultsService.swift in Sources */,
 				FC3E11472B62DBF8007E166E /* OnboardingInteractor.swift in Sources */,
 				FC3E11512B62DC36007E166E /* HomePresenter.swift in Sources */,
 				FC3E118F2B683051007E166E /* EuropeanCinemaData.swift in Sources */,

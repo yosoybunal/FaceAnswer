@@ -24,8 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if shouldShowHome {
       initialViewController.setRootWireframe(HomeWireframe())
     } else {
-      
-// MARK: - REPLACE THIS WIREFRAME WITH OnboardingWireframe
       initialViewController.setRootWireframe(OnboardingWireframe())
     }
 
@@ -47,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }()
 }
 
-// MARK: - User Defaults
+// MARK: - User Defaults 
 
 private extension AppDelegate {
   var shouldShowHome: Bool {

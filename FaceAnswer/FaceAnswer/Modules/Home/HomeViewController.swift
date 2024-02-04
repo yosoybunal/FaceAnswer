@@ -11,11 +11,11 @@ import UIKit
 
 final class HomeViewController: UIViewController {
 
+  // MARK: - Public properties -
+
   @IBOutlet weak var howToPlayLabel: UILabel!
   @IBOutlet weak var textLabel: UILabel!
   @IBOutlet weak var collectionView: UICollectionView!
-  // MARK: - Public properties -
-
   private var categoryNames: [String] = []
   var presenter: HomePresenterInterface!
 
@@ -26,9 +26,9 @@ final class HomeViewController: UIViewController {
     collectionView.dataSource = self
     collectionView.delegate = self
     collectionView.reloadData()
-    setupUI()
     categoryNames.append(HomePresenter.galatasarayLegends.categoryName)
     categoryNames.append(HomePresenter.europeanCinema.categoryName)
+    setupUI()
   }
 
   private func setupUI() {

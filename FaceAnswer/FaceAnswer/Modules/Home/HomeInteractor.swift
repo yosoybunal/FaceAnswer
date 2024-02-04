@@ -10,16 +10,14 @@
 import UIKit
 
 final class HomeInteractor {
-
+  
   let context = CoreDataService.shared.context
 }
-
-
 
 // MARK: - Extensions -
 
 extension HomeInteractor: HomeInteractorInterface {
-
+  
   func saveQuestions(_ category: Dictionary<String, Bool>) {
     let user = CoreDataService.shared.user
     user.selectedCategory = category
@@ -30,5 +28,4 @@ extension HomeInteractor: HomeInteractorInterface {
       print(error.localizedDescription)
     }
   }
-
 }

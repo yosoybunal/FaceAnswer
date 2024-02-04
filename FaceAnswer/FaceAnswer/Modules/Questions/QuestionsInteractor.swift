@@ -17,8 +17,7 @@ final class QuestionsInteractor {
 
 // MARK: - Extensions -
 
-extension QuestionsInteractor: QuestionsInteractorInterface {
-  
+extension QuestionsInteractor: QuestionsInteractorInterface {  
   func fetchData() -> Dictionary<String, Bool> {
     do {
       self.selectedCategory = try context.fetch(User.fetchRequest()).last?.selectedCategory

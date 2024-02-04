@@ -20,15 +20,15 @@ final class QuestionsViewController: HeadGesture {
 
   weak var countdownTimer: Timer?
   var presenter: QuestionsPresenterInterface!
-  var remainingTime = 10
-  var selectedCategory: Dictionary<String, Bool>?
-  var keysArray: [String] = []
-  var valuesArray: [Bool] = []
-  var currentIndex = 0
-  var score: Int64 = 0
-  var audioPlayer: AVAudioPlayer?
+  private var remainingTime = 10
+  private var selectedCategory: Dictionary<String, Bool>?
+  private var keysArray: [String] = []
+  private var valuesArray: [Bool] = []
+  private var currentIndex = 0
+  private var score: Int64 = 0
+  private var audioPlayer: AVAudioPlayer?
 
-  //   MARK: - Lifecycle -
+  //   MARK: - Lifecycle & Functions -
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,29 +39,6 @@ final class QuestionsViewController: HeadGesture {
     valuesArray = Array(selectedCategory!.values)
     updateQuestion()
     setupCamera()
-  }
-
-  func stopTimer() {
-    countdownTimer?.invalidate()
-    timerLabel.text = ""
-    questionLabel.text = ""
-  }
-
-  func updateQuestion() {
-    guard currentIndex < keysArray.count else {
-      captureSession.removeOutput(videoOutput)
-      presenter.setSelectedUserScore(score)
-      presenter.navigateToResults()
-      return
-    }
-    countdownTimer = Timer.scheduledTimer(timeInterval: 1,
-                                          target: self,
-                                          selector: #selector(updateTimerUI),
-                                          userInfo: nil,
-                                          repeats: true)
-    let currentKey = keysArray[currentIndex]
-    questionLabel.text = "\(currentKey)"
-    currentIndex += 1
   }
 
   override func handleHeadMovement(answer: Bool) {
@@ -82,7 +59,29 @@ final class QuestionsViewController: HeadGesture {
         self.playWrongAnswerSound()
       }
     }
+  }
 
+  private func stopTimer() {
+    countdownTimer?.invalidate()
+    timerLabel.text = ""
+    questionLabel.text = ""
+  }
+
+  private func updateQuestion() {
+    guard currentIndex < keysArray.count else {
+      captureSession.removeOutput(videoOutput)
+      presenter.setSelectedUserScore(score)
+      presenter.navigateToResults()
+      return
+    }
+    countdownTimer = Timer.scheduledTimer(timeInterval: 1,
+                                          target: self,
+                                          selector: #selector(updateTimerUI),
+                                          userInfo: nil,
+                                          repeats: true)
+    let currentKey = keysArray[currentIndex]
+    questionLabel.text = "\(currentKey)"
+    currentIndex += 1
   }
 
   @objc func updateTimerUI() {
@@ -92,12 +91,12 @@ final class QuestionsViewController: HeadGesture {
     } else {
       stopTimer()
       captureSession.removeOutput(videoOutput)
-      showAlert(message: "The correct answer was \(valuesArray[currentIndex]).", title: "Time is up!")
+      showAlert(message: "The correct answer was \(valuesArray[currentIndex - 1]).", title: "Time is up!")
       playTimeIsUpSound()
     }
   }
 
-  func showAlert(message: String, title: String) {
+  private func showAlert(message: String, title: String) {
     let alert = UIAlertController(title: title.uppercased(),
                                   message: message,
                                   preferredStyle: .alert)
@@ -111,7 +110,9 @@ final class QuestionsViewController: HeadGesture {
     present(alert, animated: true, completion: nil)
   }
 
-  func playCorrectAnswerSound() {
+  // MARK: - Sounds' Functions -
+
+  private func playCorrectAnswerSound() {
     guard let correctAnswerURL = Bundle.main.url(forResource: "correctanswer", withExtension: "mp3") else { return }
     do{
       audioPlayer = try AVAudioPlayer(contentsOf: correctAnswerURL)
@@ -121,7 +122,7 @@ final class QuestionsViewController: HeadGesture {
     }
   }
 
-  func playWrongAnswerSound() {
+  private func playWrongAnswerSound() {
     guard let wrongAnswerURL = Bundle.main.url(forResource: "wronganswer", withExtension: "mp3") else { return }
     do{
       audioPlayer = try AVAudioPlayer(contentsOf: wrongAnswerURL)
@@ -131,7 +132,7 @@ final class QuestionsViewController: HeadGesture {
     }
   }
 
-  func playTimeIsUpSound() {
+  private func playTimeIsUpSound() {
     guard let timeIsUpURL = Bundle.main.url(forResource: "timeisup", withExtension: "mp3") else { return }
     do{
       audioPlayer = try AVAudioPlayer(contentsOf: timeIsUpURL)

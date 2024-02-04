@@ -10,22 +10,21 @@
 import UIKit
 
 final class QuestionsWireframe: BaseWireframe<QuestionsViewController> {
-
-    // MARK: - Private properties -
-
-    private let storyboard = UIStoryboard(name: "Questions", bundle: nil)
-
-    // MARK: - Module setup -
-
-    init() {
-        let moduleViewController = storyboard.instantiateViewController(ofType: QuestionsViewController.self)
-        super.init(viewController: moduleViewController)
-
-        let interactor = QuestionsInteractor()
-        let presenter = QuestionsPresenter(view: moduleViewController, interactor: interactor, wireframe: self)
-        moduleViewController.presenter = presenter
-    }
-
+  
+  // MARK: - Private properties -
+  
+  private let storyboard = UIStoryboard(name: "Questions", bundle: nil)
+  
+  // MARK: - Module setup -
+  
+  init() {
+    let moduleViewController = storyboard.instantiateViewController(ofType: QuestionsViewController.self)
+    super.init(viewController: moduleViewController)
+    
+    let interactor = QuestionsInteractor()
+    let presenter = QuestionsPresenter(view: moduleViewController, interactor: interactor, wireframe: self)
+    moduleViewController.presenter = presenter
+  }
 }
 
 // MARK: - Extensions -

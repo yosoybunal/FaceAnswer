@@ -11,8 +11,12 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
   static let identifier = "categoryCell"
 
+  // MARK: - Public Properties -
+
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var textLabel: UILabel!
+
+  // MARK: - Configuration -
 
   func configure(categoryName: String) {
     textLabel.text = categoryName

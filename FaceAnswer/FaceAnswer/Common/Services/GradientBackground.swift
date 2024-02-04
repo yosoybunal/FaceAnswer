@@ -18,17 +18,13 @@ class GradientBackground: UIView {
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
-
+  
   override func draw(_ rect: CGRect) {
     super.draw(rect)
 
     UIColor.white.setFill()
     UIRectFill(rect)
-
-    //// General Declarations
     let context = UIGraphicsGetCurrentContext()!
-
-    //// Gradient Declarations
     let paint0_linear2 = CGGradient(colorsSpace: nil, colors: [Colors.gradientColor0.cgColor, Colors.gradientColor1.cgColor] as CFArray, locations: [0, 1])!
 
     context.drawLinearGradient(paint0_linear2,

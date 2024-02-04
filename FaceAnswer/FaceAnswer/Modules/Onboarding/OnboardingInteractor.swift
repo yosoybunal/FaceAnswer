@@ -10,9 +10,9 @@
 import Foundation
 
 final class OnboardingInteractor {
-  let userService: UserService
+  let userService: UserDefaultsService
 
-  init(userService: UserService = .shared) {
+  init(userService: UserDefaultsService = .shared) {
     self.userService = userService
   }
 }

@@ -18,7 +18,7 @@ final class OnboardingViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var saveButton: UIButton!
   @IBOutlet weak var userNameField: UITextField!
 
-  var userName: String = ""
+  private var userName: String = ""
   var presenter: OnboardingPresenterInterface!
 
   // MARK: - Lifecycle -
@@ -29,14 +29,14 @@ final class OnboardingViewController: UIViewController, UITextFieldDelegate {
     setupTextField()
   }
 
-  func setupUI() {
+  private func setupUI() {
     appName.text = "Face Answer"
     userNameField.placeholder = "Enter a username"
     saveButton.setTitle("Save Username", for: .normal)
     saveButton.setTitleColor(.darkText, for: .normal)
   }
 
-  func setupTextField() {
+  private func setupTextField() {
     userNameField.delegate = self
     userNameField.keyboardType = .asciiCapable
     userNameField.returnKeyType = .done
@@ -48,7 +48,7 @@ final class OnboardingViewController: UIViewController, UITextFieldDelegate {
     return true
   }
 
-  func showAlert() {
+  private func showAlert() {
     let alert = UIAlertController(title: "Empty Username", message: "Please fill a valid username between 2-15 characters.", preferredStyle: .actionSheet)
     let alertAction = UIAlertAction(title: "OK", style: .default)
     alert.addAction(alertAction)

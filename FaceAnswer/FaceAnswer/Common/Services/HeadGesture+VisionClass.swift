@@ -10,44 +10,44 @@ import AVFoundation
 import Vision
 
 class HeadGesture: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
-
+  
   // Vision variables
   var sequenceHandler = VNSequenceRequestHandler()
   let faceDetectionRequest: VNDetectFaceRectanglesRequest = {
     let request = VNDetectFaceRectanglesRequest()
     return request
   }()
-
+  
   // AVCapture variables
   let captureSession = AVCaptureSession()
   let videoOutput = AVCaptureVideoDataOutput()
   var previewLayer: AVCaptureVideoPreviewLayer?
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
-
+  
   func setupCamera() {
     guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else { return }
     let deviceInput: AVCaptureDeviceInput
-
+    
     do {
       deviceInput = try AVCaptureDeviceInput(device: captureDevice)
     } catch {
       print(error)
       return
     }
-
+    
     if (captureSession.canAddInput(deviceInput)) {
       captureSession.addInput(deviceInput)
     } else {
       print("Failed to add AVCaptureDeviceInput to AVCaptureSession.")
       return
     }
-
+    
     if (captureSession.canAddOutput(videoOutput)) {
       captureSession.addOutput(videoOutput)
-
+      
       let videoQueue = DispatchQueue(label: "videoQueue")
       videoOutput.setSampleBufferDelegate(self, queue: videoQueue)
       videoOutput.alwaysDiscardsLateVideoFrames = true
@@ -55,29 +55,29 @@ class HeadGesture: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegat
       print("Failed to add AVCaptureVideoDataOutput to AVCaptureSession.")
       return
     }
-
+    
     previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
     previewLayer?.videoGravity = .resizeAspectFill
     previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
     previewLayer?.videoGravity = .resizeAspectFill
-
+    
     let newWidth: CGFloat = 300.0
     let newHeight: CGFloat = 300.0
     previewLayer?.frame = CGRect(x: view.layer.frame.midX - 150, y: view.layer.frame.midY - 150, width: newWidth, height: newHeight)
     view.layer.insertSublayer(previewLayer!, at: 0)
-
+    
     captureSession.startRunning()
   }
-
+  
   func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
     processSampleBuffer(sampleBuffer: sampleBuffer)
   }
-
+  
   func processSampleBuffer(sampleBuffer: CMSampleBuffer) {
     guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
       return
     }
-
+    
     do {
       try sequenceHandler.perform([faceDetectionRequest], on: pixelBuffer)
       guard let faceObservation = faceDetectionRequest.results?.first as? VNFaceObservation else {
@@ -97,17 +97,17 @@ class HeadGesture: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegat
       print("Error processing sample buffer: \(error)")
     }
   }
-
+  
   func restartTracking() {
     // Add video output back to the session
     if !captureSession.outputs.contains(videoOutput) {
       captureSession.addOutput(videoOutput)
     }
   }
-
+  
   func handleHeadMovement(answer: Bool) {
   }
-
+  
   deinit {
   }
 }

@@ -11,21 +11,20 @@ import UIKit
 
 final class HomeWireframe: BaseWireframe<HomeViewController> {
 
-    // MARK: - Private properties -
+  // MARK: - Private properties -
 
-    private let storyboard = UIStoryboard(name: "Home", bundle: nil)
+  private let storyboard = UIStoryboard(name: "Home", bundle: nil)
 
-    // MARK: - Module setup -
+  // MARK: - Module setup -
 
-    init() {
-        let moduleViewController = storyboard.instantiateViewController(ofType: HomeViewController.self)
-        super.init(viewController: moduleViewController)
+  init() {
+    let moduleViewController = storyboard.instantiateViewController(ofType: HomeViewController.self)
+    super.init(viewController: moduleViewController)
 
-        let interactor = HomeInteractor()
-        let presenter = HomePresenter(view: moduleViewController, interactor: interactor, wireframe: self)
-        moduleViewController.presenter = presenter
-    }
-
+    let interactor = HomeInteractor()
+    let presenter = HomePresenter(view: moduleViewController, interactor: interactor, wireframe: self)
+    moduleViewController.presenter = presenter
+  }
 }
 
 // MARK: - Extensions -
@@ -33,6 +32,5 @@ final class HomeWireframe: BaseWireframe<HomeViewController> {
 extension HomeWireframe: HomeWireframeInterface {
   func navigateToQuestions(_ category: Dictionary<String, Bool>) {
     navigationController?.setRootWireframe(QuestionsWireframe(), animated: true)
-//    navigationController?.setRootWireframe(ResultsWireframe(), animated: true)
   }
 }
