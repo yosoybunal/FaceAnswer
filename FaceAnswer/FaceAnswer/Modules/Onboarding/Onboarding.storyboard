@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,12 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIv-6Z-EvB">
-                                <rect key="frame" x="60" y="734" width="273" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIv-6Z-EvB">
+                                <rect key="frame" x="24" y="734" width="345" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="vdB-Tg-xvA"/>
                                 </constraints>
-                                <buttonConfiguration key="configuration" style="tinted" title="Save Username"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Save Username"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Save Username" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="onButtonClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WBr-6E-5U1"/>
                                 </connections>
@@ -37,8 +44,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y7L-Kk-eCX">
-                                <rect key="frame" x="120" y="467" width="153" height="45"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y7L-Kk-eCX">
+                                <rect key="frame" x="60" y="467" width="273" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="vwH-8t-hhb"/>
                                 </constraints>
@@ -50,14 +57,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Y7L-Kk-eCX" firstAttribute="top" secondItem="7y1-iI-KrM" secondAttribute="bottom" constant="8" id="09e-9r-oFJ"/>
-                            <constraint firstItem="YIv-6Z-EvB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="5wC-56-8tA"/>
+                            <constraint firstItem="YIv-6Z-EvB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="5wC-56-8tA"/>
                             <constraint firstItem="7y1-iI-KrM" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="Atw-Dd-5rp"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YIv-6Z-EvB" secondAttribute="trailing" constant="60" id="SFV-r6-tgf"/>
-                            <constraint firstItem="Y7L-Kk-eCX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="120" id="WI0-GV-aVI"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YIv-6Z-EvB" secondAttribute="trailing" constant="24" id="SFV-r6-tgf"/>
+                            <constraint firstItem="Y7L-Kk-eCX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="WI0-GV-aVI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YIv-6Z-EvB" secondAttribute="bottom" constant="40" id="Wcq-xd-PQ4"/>
                             <constraint firstItem="YIv-6Z-EvB" firstAttribute="top" secondItem="Y7L-Kk-eCX" secondAttribute="bottom" constant="222" id="ZQI-fK-6Lm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7y1-iI-KrM" secondAttribute="trailing" id="tpL-La-TvK"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Y7L-Kk-eCX" secondAttribute="trailing" constant="120" id="yCU-Kz-elK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Y7L-Kk-eCX" secondAttribute="trailing" constant="60" id="yCU-Kz-elK"/>
                         </constraints>
                     </view>
                     <connections>
@@ -75,6 +82,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -36,8 +36,6 @@ final class ResultsViewController: UIViewController {
     tableView.register(UINib(nibName: "ResultsTableViewCell", bundle: nil), forCellReuseIdentifier: ResultsTableViewCell.identifier)
     tableView.showsVerticalScrollIndicator = false
     tableView.showsHorizontalScrollIndicator = false
-    returnToHomeButton.setTitleColor(.darkText, for: .normal)
-    returnToHomeButton.setTitle("Return to Home", for: .normal)
     currentScoreLabel.text = "Current Quiz Result: \(currentScore ?? 0)"
   }
 

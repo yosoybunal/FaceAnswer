@@ -39,7 +39,6 @@ final class HomeViewController: UIViewController {
     OR
     Move your head to left ⇦ for giving FALSE answer to a sentence.
     """
-    textLabel.text = "Select a Category"
     collectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
   }
 }
@@ -57,7 +56,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell()}
-    cell.configure(categoryName: categoryNames[indexPath.item].uppercased())
+    cell.configure(categoryName: categoryNames[indexPath.item])
     return cell
   }
 

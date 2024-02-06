@@ -184,10 +184,10 @@
 		FC3E11312B62DB57007E166E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				FC3E11632B62DC74007E166E /* Results */,
-				FC3E11562B62DC59007E166E /* Questions */,
-				FC3E11552B62DC49007E166E /* Home */,
 				FC3E11322B62DB6B007E166E /* Onboarding */,
+				FC3E11552B62DC49007E166E /* Home */,
+				FC3E11562B62DC59007E166E /* Questions */,
+				FC3E11632B62DC74007E166E /* Results */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -278,6 +278,8 @@
 				FC3E11972B68F9F1007E166E /* FaceAnswer.xcdatamodeld */,
 				FC9E4A752B6D3D57007CECCE /* User+CoreDataClass.swift */,
 				FC9E4A762B6D3D57007CECCE /* User+CoreDataProperties.swift */,
+				FC3E118E2B683051007E166E /* EuropeanCinemaData.swift */,
+				FC3E11932B68503E007E166E /* GalatasarayLegendsData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -289,8 +291,6 @@
 				FC3E11742B63A9EA007E166E /* GradientView.swift */,
 				FC3E118C2B67E976007E166E /* GradientBackground.swift */,
 				FC3E117B2B63FA0B007E166E /* Colors.swift */,
-				FC3E118E2B683051007E166E /* EuropeanCinemaData.swift */,
-				FC3E11932B68503E007E166E /* GalatasarayLegendsData.swift */,
 				FC3E11C52B69BDE1007E166E /* CoreDataService.swift */,
 				FC3E11C92B6A847C007E166E /* HeadGesture+VisionClass.swift */,
 			);

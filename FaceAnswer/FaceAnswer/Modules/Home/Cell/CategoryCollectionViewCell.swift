@@ -19,10 +19,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
   // MARK: - Configuration -
 
   func configure(categoryName: String) {
-    textLabel.text = categoryName
+    textLabel.text = categoryName.uppercased()
     textLabel.font = .systemFont(ofSize: 17, weight: .light)
     textLabel.textColor = .black
-    imageView.image = UIImage(systemName: "film.circle.fill")
+    imageView.image = UIImage(systemName: "film.circle.fill")?.withTintColor(Colors.gradientColor0, renderingMode: .alwaysOriginal)
     textLabel.numberOfLines = 0
   }
 }

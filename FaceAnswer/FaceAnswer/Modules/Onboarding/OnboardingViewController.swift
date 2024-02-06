@@ -25,15 +25,8 @@ final class OnboardingViewController: UIViewController, UITextFieldDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupUI()
-    setupTextField()
-  }
-
-  private func setupUI() {
     appName.text = "Face Answer"
-    userNameField.placeholder = "Enter a username"
-    saveButton.setTitle("Save Username", for: .normal)
-    saveButton.setTitleColor(.darkText, for: .normal)
+    setupTextField()
   }
 
   private func setupTextField() {

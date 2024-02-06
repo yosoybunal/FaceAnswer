@@ -9,7 +9,10 @@ import Foundation
 
 struct EuropeanCinemaData {
 
-  let categoryName: String = "European Cinema"
+  let categoryName: String = """
+  European 
+  Cinema
+  """
 
   let europeanCinemaDict: Dictionary<String, Bool> = [
     "Chris Marker directed the movies called La Jetée and Sans Soleil?" : true,
