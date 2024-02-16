@@ -34,6 +34,7 @@ final class HomeViewController: UIViewController {
   private func setupUI() {
     title = "Face Answer"
     navigationController?.navigationBar.prefersLargeTitles = true
+    navigationController?.navigationBar.backgroundColor = .clear
     howToPlayLabel.text = """
     Move your head to right ⇨ for giving TRUE answer to a sentence
     OR
