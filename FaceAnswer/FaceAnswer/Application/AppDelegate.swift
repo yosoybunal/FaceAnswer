@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if shouldShowHome {
       initialViewController.setRootWireframe(HomeWireframe())
     } else {
-      initialViewController.setRootWireframe(OnboardingWireframe())
+      initialViewController.setRootWireframe(AuthenticationWireframe())
     }
 
     window.rootViewController = initialViewController

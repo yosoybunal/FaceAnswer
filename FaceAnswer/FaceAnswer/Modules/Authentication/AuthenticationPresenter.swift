@@ -1,5 +1,5 @@
 //
-//  OnboardingPresenter.swift
+//  AuthenticationPresenter.swift
 //  FaceAnswer
 //
 //  Created by Berkay Unal on 25.01.2024.
@@ -9,17 +9,17 @@
 
 import Foundation
 
-final class OnboardingPresenter {
+final class AuthenticationPresenter {
     
     // MARK: - Private properties -
 
-    private unowned let view: OnboardingViewInterface
-    private let interactor: OnboardingInteractorInterface
-    private let wireframe: OnboardingWireframeInterface
+    private unowned let view: AuthenticationViewInterface
+    private let interactor: AuthenticationInteractorInterface
+    private let wireframe: AuthenticationWireframeInterface
 
     // MARK: - Lifecycle -
 
-    init(view: OnboardingViewInterface, interactor: OnboardingInteractorInterface, wireframe: OnboardingWireframeInterface) {
+    init(view: AuthenticationViewInterface, interactor: AuthenticationInteractorInterface, wireframe: AuthenticationWireframeInterface) {
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
@@ -28,7 +28,7 @@ final class OnboardingPresenter {
 
 // MARK: - Extensions -
 
-extension OnboardingPresenter: OnboardingPresenterInterface {
+extension AuthenticationPresenter: AuthenticationPresenterInterface {
   func shouldNavigate(_ userName: String) {
     wireframe.navigateHome()
     interactor.saveUserName(userName)

@@ -1,5 +1,5 @@
 //
-//  OnboardingInteractor.swift
+//  AuthenticationInteractor.swift
 //  FaceAnswer
 //
 //  Created by Berkay Unal on 25.01.2024.
@@ -9,7 +9,7 @@
 
 import Foundation
 
-final class OnboardingInteractor {
+final class AuthenticationInteractor {
   let userService: UserDefaultsService
 
   init(userService: UserDefaultsService = .shared) {
@@ -19,7 +19,7 @@ final class OnboardingInteractor {
 
 // MARK: - Extensions -
 
-extension OnboardingInteractor: OnboardingInteractorInterface {
+extension AuthenticationInteractor: AuthenticationInteractorInterface {
   func saveUserName(_ userName: String) {
     userService.setUserName(userName)
   }

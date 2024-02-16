@@ -1,5 +1,5 @@
 //
-//  OnboardingViewController.swift
+//  AuthenticationViewController.swift
 //  FaceAnswer
 //
 //  Created by Berkay Unal on 25.01.2024.
@@ -9,7 +9,7 @@
 
 import UIKit
 
-final class OnboardingViewController: UIViewController, UITextFieldDelegate {
+final class AuthenticationViewController: UIViewController, UITextFieldDelegate {
 
   // MARK: - Public properties -
 
@@ -19,7 +19,7 @@ final class OnboardingViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var userNameField: UITextField!
 
   private var userName: String = ""
-  var presenter: OnboardingPresenterInterface!
+  var presenter: AuthenticationPresenterInterface!
 
   // MARK: - Lifecycle -
 
@@ -51,7 +51,7 @@ final class OnboardingViewController: UIViewController, UITextFieldDelegate {
 
 // MARK: - Extensions -
 
-extension OnboardingViewController: OnboardingViewInterface {
+extension AuthenticationViewController: AuthenticationViewInterface {
   @IBAction func onButtonClick(_ sender: Any) {
     if userNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || userNameField.text!.count < 2 || userNameField.text!.count > 15 {
       showAlert()

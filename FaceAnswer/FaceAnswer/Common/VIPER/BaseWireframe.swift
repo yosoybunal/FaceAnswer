@@ -74,5 +74,4 @@ extension UINavigationController {
   func setRootWireframe<ViewController>(_ wireframe: BaseWireframe<ViewController>, animated: Bool = true) {
     setViewControllers([wireframe.viewController], animated: animated)
   }
-
 }
