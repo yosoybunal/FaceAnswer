@@ -99,9 +99,10 @@ class HeadGesture: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegat
   }
   
   func restartTracking() {
-    // Add video output back to the session
-    if !captureSession.outputs.contains(videoOutput) {
-      captureSession.addOutput(videoOutput)
+    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+      if !self.captureSession.outputs.contains(self.videoOutput) {
+        self.captureSession.addOutput(self.videoOutput)
+      }
     }
   }
   

@@ -61,6 +61,7 @@
 		FC9E4A822B6FAB75007CECCE /* wronganswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC9E4A812B6FAB75007CECCE /* wronganswer.mp3 */; };
 		FCF16D322B7FA5ED003745C2 /* ringing_bell.gif in Resources */ = {isa = PBXBuildFile; fileRef = FCF16D312B7FA5ED003745C2 /* ringing_bell.gif */; };
 		FCF16D342B7FDB22003745C2 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF16D332B7FDB22003745C2 /* UIImage+Extension.swift */; };
+		FCF16D362B801241003745C2 /* result.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FCF16D352B801241003745C2 /* result.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +121,7 @@
 		FC9E4A812B6FAB75007CECCE /* wronganswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wronganswer.mp3; sourceTree = "<group>"; };
 		FCF16D312B7FA5ED003745C2 /* ringing_bell.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ringing_bell.gif; sourceTree = "<group>"; };
 		FCF16D332B7FDB22003745C2 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		FCF16D352B801241003745C2 /* result.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = result.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +328,7 @@
 			children = (
 				FC9E4A7A2B6FA7DD007CECCE /* correctanswer.mp3 */,
 				FC9E4A792B6FA7DD007CECCE /* timeisup.mp3 */,
+				FCF16D352B801241003745C2 /* result.mp3 */,
 				FC9E4A812B6FAB75007CECCE /* wronganswer.mp3 */,
 			);
 			path = Sounds;
@@ -394,6 +397,7 @@
 				FC9E4A822B6FAB75007CECCE /* wronganswer.mp3 in Resources */,
 				FC3E11CC2B6BA0E9007E166E /* Results.storyboard in Resources */,
 				FC3E11732B639F54007E166E /* Authentication.storyboard in Resources */,
+				FCF16D362B801241003745C2 /* result.mp3 in Resources */,
 				FC3E11C42B6996CB007E166E /* Questions.storyboard in Resources */,
 				FC9E4A7D2B6FA7DD007CECCE /* correctanswer.mp3 in Resources */,
 				FC3E11842B679306007E166E /* Home.storyboard in Resources */,

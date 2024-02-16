@@ -44,20 +44,20 @@ final class QuestionsViewController: HeadGesture {
 
   override func handleHeadMovement(answer: Bool) {
     if answer == self.valuesArray[self.currentIndex - 1] {
-      DispatchQueue.main.async {
+      DispatchQueue.main.sync {
         self.captureSession.removeOutput(self.videoOutput)
-        self.resetUI()
-        self.showAlert(message: "Your answer is Correct", title: "Great job!")
+        self.playCorrectAnswerSound()
         self.score += 10
         self.scoreLabel.text = "Score: \(self.score)"
-        self.playCorrectAnswerSound()
+        self.resetUI()
+        self.showAlert(message: "Your answer is Correct", title: "Great job!")
       }
     }  else {
-      DispatchQueue.main.async {
-        self.resetUI()
+      DispatchQueue.main.sync {
         self.captureSession.removeOutput(self.videoOutput)
-        self.showAlert(message: "Your answer is Wrong", title: "Not this time!")
         self.playWrongAnswerSound()
+        self.resetUI()
+        self.showAlert(message: "Your answer is Wrong", title: "Not this time!")
       }
     }
   }
@@ -90,6 +90,7 @@ final class QuestionsViewController: HeadGesture {
       captureSession.removeOutput(videoOutput)
       presenter.setSelectedUserScore(score)
       presenter.navigateToResults()
+      playResultsSound()
       return
     }
     countdownTimer = Timer.scheduledTimer(timeInterval: 1,
@@ -121,10 +122,11 @@ final class QuestionsViewController: HeadGesture {
                                   preferredStyle: .alert)
     present(alert, animated: true, completion: nil)
     DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-      self?.restartTracking()
-      self?.updateQuestion()
-      self?.remainingTime = 11
-      alert.dismiss(animated: true, completion: nil)
+      alert.dismiss(animated: true) {
+        self?.remainingTime = 11
+        self?.updateQuestion()
+        self?.restartTracking()
+      }
     }
   }
 
@@ -154,6 +156,16 @@ final class QuestionsViewController: HeadGesture {
     guard let timeIsUpURL = Bundle.main.url(forResource: "timeisup", withExtension: "mp3") else { return }
     do{
       audioPlayer = try AVAudioPlayer(contentsOf: timeIsUpURL)
+      audioPlayer?.play()
+    } catch {
+      print("Error playing sound: \(error.localizedDescription)")
+    }
+  }
+
+  private func playResultsSound() {
+    guard let results = Bundle.main.url(forResource: "result", withExtension: "mp3") else { return }
+    do{
+      audioPlayer = try AVAudioPlayer(contentsOf: results)
       audioPlayer?.play()
     } catch {
       print("Error playing sound: \(error.localizedDescription)")
