@@ -14,13 +14,14 @@ final class QuestionsViewController: HeadGesture {
 
   // MARK: - Public properties -
 
+  @IBOutlet weak var bellImageView: UIImageView!
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var timerLabel: UILabel!
   @IBOutlet weak var questionLabel: UILabel!
 
   weak var countdownTimer: Timer?
   var presenter: QuestionsPresenterInterface!
-  private var remainingTime = 10
+  private var remainingTime = 11
   private var selectedCategory: Dictionary<String, Bool>?
   private var keysArray: [String] = []
   private var valuesArray: [Bool] = []
@@ -32,20 +33,20 @@ final class QuestionsViewController: HeadGesture {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    scoreLabel.text = "Score: 0"
     timerLabel.text = "TIME STARTS NOW!"
     getUserData()
     keysArray = Array(selectedCategory!.keys)
     valuesArray = Array(selectedCategory!.values)
     updateQuestion()
     setupCamera()
+    setupScoreLabel()
   }
 
   override func handleHeadMovement(answer: Bool) {
     if answer == self.valuesArray[self.currentIndex - 1] {
       DispatchQueue.main.async {
         self.captureSession.removeOutput(self.videoOutput)
-        self.stopTimer()
+        self.resetUI()
         self.showAlert(message: "Your answer is Correct", title: "Great job!")
         self.score += 10
         self.scoreLabel.text = "Score: \(self.score)"
@@ -53,7 +54,7 @@ final class QuestionsViewController: HeadGesture {
       }
     }  else {
       DispatchQueue.main.async {
-        self.stopTimer()
+        self.resetUI()
         self.captureSession.removeOutput(self.videoOutput)
         self.showAlert(message: "Your answer is Wrong", title: "Not this time!")
         self.playWrongAnswerSound()
@@ -61,10 +62,27 @@ final class QuestionsViewController: HeadGesture {
     }
   }
 
-  private func stopTimer() {
+  private func setupScoreLabel() {
+    scoreLabel.text = "Score: 0"
+    scoreLabel.backgroundColor = UIColor.systemMint
+    scoreLabel.layer.cornerRadius = 20
+    scoreLabel.clipsToBounds = true
+    scoreLabel.textAlignment = .center
+  }
+
+  private func addTimerGif() {
+    guard let gifURL = Bundle.main.url(forResource: "ringing_bell", withExtension: "gif") else {return}
+    if let imageData = try? Data(contentsOf: gifURL) {
+      let gifImage = UIImage.animatedImage(withAnimatedGIFData: imageData)
+      bellImageView.image = gifImage
+    }
+  }
+
+  private func resetUI() {
     countdownTimer?.invalidate()
     timerLabel.text = ""
     questionLabel.text = ""
+    bellImageView.image = UIImage()
   }
 
   private func updateQuestion() {
@@ -85,11 +103,12 @@ final class QuestionsViewController: HeadGesture {
   }
 
   @objc func updateTimerUI() {
-    if remainingTime > 0 {
+    if remainingTime > 1 {
       remainingTime -= 1
       timerLabel.text = "\(remainingTime) seconds"
+      addTimerGif()
     } else {
-      stopTimer()
+      resetUI()
       captureSession.removeOutput(videoOutput)
       showAlert(message: "The correct answer was \(valuesArray[currentIndex - 1]).", title: "Time is up!")
       playTimeIsUpSound()
@@ -100,14 +119,13 @@ final class QuestionsViewController: HeadGesture {
     let alert = UIAlertController(title: title.uppercased(),
                                   message: message,
                                   preferredStyle: .alert)
-    let action = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+    present(alert, animated: true, completion: nil)
+    DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
       self?.restartTracking()
       self?.updateQuestion()
-      self?.remainingTime = 10
-      self?.timerLabel.text = "10 seconds"
+      self?.remainingTime = 11
+      alert.dismiss(animated: true, completion: nil)
     }
-    alert.addAction(action)
-    present(alert, animated: true, completion: nil)
   }
 
   // MARK: - Sounds' Functions -
@@ -150,3 +168,5 @@ extension QuestionsViewController: QuestionsViewInterface {
     self.selectedCategory = presenter.getSelectedUserData()
   }
 }
+
+
