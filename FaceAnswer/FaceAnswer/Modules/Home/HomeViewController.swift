@@ -37,7 +37,7 @@ final class HomeViewController: UIViewController {
     navigationController?.navigationBar.backgroundColor = .clear
     howToPlayLabel.text = """
     Move your head to right ⇨ for giving TRUE answer to a sentence
-    OR
+
     Move your head to left ⇦ for giving FALSE answer to a sentence.
     """
     collectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
@@ -58,6 +58,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell()}
     cell.configure(categoryName: categoryNames[indexPath.item])
+//                   UIImage(systemName: "movieclapper")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
     return cell
   }
 

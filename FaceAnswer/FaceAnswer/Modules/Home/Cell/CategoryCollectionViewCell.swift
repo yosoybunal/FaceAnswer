@@ -22,7 +22,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     textLabel.text = categoryName.uppercased()
     textLabel.font = .systemFont(ofSize: 17, weight: .light)
     textLabel.textColor = .black
-    imageView.image = categoryName == "Galatasaray Legends" ? UIImage(systemName: "figure.soccer")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal) : UIImage(systemName: "movieclapper")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
+    imageView.image = categoryName == "Galatasaray Legends" ? UIImage(systemName: "flag.filled.and.flag.crossed")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal) : UIImage(systemName: "film.circle")?.withTintColor(.lightGray, renderingMode: .alwaysOriginal)
     textLabel.numberOfLines = 0
   }
 }
