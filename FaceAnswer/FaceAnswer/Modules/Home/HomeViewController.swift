@@ -58,7 +58,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as? CategoryCollectionViewCell else { return UICollectionViewCell()}
     cell.configure(categoryName: categoryNames[indexPath.item])
-//                   UIImage(systemName: "movieclapper")?.withTintColor(.darkGray, renderingMode: .alwaysOriginal)
     return cell
   }
 
