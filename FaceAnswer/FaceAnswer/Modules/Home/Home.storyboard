@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qCa-AA-F64">
-                                <rect key="frame" x="0.0" y="364" width="393" height="200"/>
+                                <rect key="frame" x="15" y="364" width="378" height="200"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="ond-QU-rPf"/>
@@ -63,8 +63,8 @@
                             <constraint firstItem="qCa-AA-F64" firstAttribute="top" secondItem="MQ6-xk-7L9" secondAttribute="bottom" id="Rmt-GW-IkA"/>
                             <constraint firstItem="MQ6-xk-7L9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Rvw-9a-DTm"/>
                             <constraint firstItem="Ye4-sx-dAw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="g9O-s1-Vvh"/>
+                            <constraint firstItem="qCa-AA-F64" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="gcF-oC-CnH"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qCa-AA-F64" secondAttribute="trailing" id="qfJ-PB-EYV"/>
-                            <constraint firstItem="qCa-AA-F64" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="spi-n0-no3"/>
                             <constraint firstItem="MQ6-xk-7L9" firstAttribute="top" secondItem="Ye4-sx-dAw" secondAttribute="bottom" constant="10" id="twq-DE-tET"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ye4-sx-dAw" secondAttribute="trailing" constant="15" id="xoc-Ya-OTG"/>
                         </constraints>
