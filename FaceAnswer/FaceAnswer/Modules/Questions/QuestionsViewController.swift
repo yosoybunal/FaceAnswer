@@ -99,7 +99,9 @@ final class QuestionsViewController: HeadGesture {
                                           userInfo: nil,
                                           repeats: true)
     let currentKey = keysArray[currentIndex]
-    questionLabel.text = "\(currentKey)"
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+      self.questionLabel.text = "\(currentKey)"
+    }
     currentIndex += 1
   }
 
