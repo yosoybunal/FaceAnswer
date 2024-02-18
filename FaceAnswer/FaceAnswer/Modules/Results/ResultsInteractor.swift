@@ -9,6 +9,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 final class ResultsInteractor {
   fileprivate var currentScore: Int64?
@@ -31,7 +32,8 @@ extension ResultsInteractor: ResultsInteractorInterface {
     var scores: [Int64] = []
     do {
       let _ = try context.fetch(User.fetchRequest()).map { user in
-        scores.append(user.score)
+          guard user.score != 1000 else { return }
+          scores.append(user.score)
       }
     } catch {
       print(error.localizedDescription)

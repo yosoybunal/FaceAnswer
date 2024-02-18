@@ -19,8 +19,9 @@ final class HomeInteractor {
 extension HomeInteractor: HomeInteractorInterface {
   
   func saveQuestions(_ category: Dictionary<String, Bool>) {
-    let user = CoreDataService.shared.user
+    let user = User(context: context)
     user.selectedCategory = category
+    user.score = 1000
     do {
       try context.save()
     }

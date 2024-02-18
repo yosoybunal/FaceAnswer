@@ -28,7 +28,7 @@ extension QuestionsInteractor: QuestionsInteractorInterface {
   }
   
   func saveScore(_ score: Int64) {
-    let user = CoreDataService.shared.user
+    let user = User(context: context)
     user.score = score
     do {
       try context.save()
